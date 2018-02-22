@@ -1,3 +1,15 @@
+# BDD PROBLEM
+
+````
+  - erase dateNaissance from Utilisateur
+  - All id must be auto increment
+  - Table Aliments => Aliment
+  - Add temps_preparation and temps_cuisson somewhere ?
+  - Some _ might be nice
+````
+
+
+
 symfony
 =======
 

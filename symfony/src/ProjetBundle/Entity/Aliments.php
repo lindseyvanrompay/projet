@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Aliments
  *
  * @ORM\Table(name="ALIMENTS")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ProjetBundle\Entity\AlimentRepository")
  */
 class Aliments
 {
@@ -150,4 +150,5 @@ class Aliments
     {
         return $this->idrecette;
     }
+
 }

@@ -5,25 +5,35 @@ namespace ProjetBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class RecetteType extends AbstractType
+class FormCreationRecetteType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomrecette')->add('idutilisateur')->add('idaliment')        ;
+        $builder->add('nomrecette')
+        ->add('aliment', EntityType::class, array(
+            'class' => "ProjetBundle:Aliments",
+            'choice_label' => 'nomAliment'
+            )
+        )
+       ->add('submit', SubmitType::class,
+          array(
+            'label' => 'Connexion',
+            'attr' =>  array('class'=>'btn btn-success')
+            )
+        );
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'ProjetBundle\Entity\Recette'
-        ));
     }
 
     /**

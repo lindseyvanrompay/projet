@@ -9,4 +9,4 @@ connexion:
 
 creation_recette:
     path:     /creation
-    defaults: { _controller: ProjetBundle:RecetteController:creation }
+    defaults: { _controller: ProjetBundle:Recette:creation }

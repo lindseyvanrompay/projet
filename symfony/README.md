@@ -21,7 +21,7 @@ type 127.0.0.1:8000 in navigator to see the page
   - src/ProjetBundle/Ressources/config/routing.yml (url path)
   - src/ProjetBundle/Ressources/views (views)
 
-Warning ! images needs to be in the web directory
+Warning ! images needs to be in the web directory and called with src="{ asset('img/monImage.png') }}" (or something like that)
 
 ````
 
@@ -51,7 +51,7 @@ Warning ! images needs to be in the web directory
 ````
   - Download symphony.phar then type the following command :
     - php symfony
-    - symfony new project_name 3.4
+    - symfony new project_name 3.2.2 (here)
 ````
 
 # Symfony, Twig and Database config
@@ -64,6 +64,8 @@ Warning ! images needs to be in the web directory
 
 #Mapping entity from database (see config)
 ````
+Take care to not have 2 configs file !!! (@annotation + config/doctrine/Entity.orm.yml)
+
 $sudo php bin/console doctrine:mapping:import ProjetBundle
 $sudo php bin/console doctrine:mapping:convert annotation ./src
 $sudo php bin/console doctrine:generate:entities ProjetBundle

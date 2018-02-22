@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Mets
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDMETS", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idmets;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="NOMMETS", type="text", length=255, nullable=true)
@@ -36,9 +27,18 @@ class Mets
     private $caloriemets;
 
     /**
-     * @var \Recette
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Recette")
+     * @ORM\Column(name="IDMETS", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idmets;
+
+    /**
+     * @var \ProjetBundle\Entity\Recette
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Recette")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
      * })
@@ -46,9 +46,9 @@ class Mets
     private $idrecette;
 
     /**
-     * @var \Categorie
+     * @var \ProjetBundle\Entity\Categorie
      *
-     * @ORM\ManyToOne(targetEntity="Categorie")
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDCATEGORIE", referencedColumnName="IDCATEGORIE")
      * })
@@ -58,7 +58,7 @@ class Mets
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Menu", inversedBy="idmets")
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Menu", inversedBy="idmets")
      * @ORM\JoinTable(name="composemenu",
      *   joinColumns={
      *     @ORM\JoinColumn(name="IDMETS", referencedColumnName="IDMETS")

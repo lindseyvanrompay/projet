@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Dieteticien
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDDIETETICIEN", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $iddieteticien;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="NOMDIETETICIEN", type="text", length=255, nullable=true)
@@ -57,16 +48,18 @@ class Dieteticien
     private $mdpdieteticien;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var integer
      *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="iddieteticien")
+     * @ORM\Column(name="IDDIETETICIEN", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idutilisateur;
+    private $iddieteticien;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Statistiques", inversedBy="iddieteticien")
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Statistiques", inversedBy="iddieteticien")
      * @ORM\JoinTable(name="observationstatistique",
      *   joinColumns={
      *     @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
@@ -83,7 +76,6 @@ class Dieteticien
      */
     public function __construct()
     {
-        $this->idutilisateur = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idstatistique = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -216,40 +208,6 @@ class Dieteticien
     public function getIddieteticien()
     {
         return $this->iddieteticien;
-    }
-
-    /**
-     * Add idutilisateur
-     *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
-     *
-     * @return Dieteticien
-     */
-    public function addIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur)
-    {
-        $this->idutilisateur[] = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Remove idutilisateur
-     *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
-     */
-    public function removeIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur)
-    {
-        $this->idutilisateur->removeElement($idutilisateur);
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 
     /**

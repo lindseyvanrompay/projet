@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Statistiques
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDSTATISTIQUE", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idstatistique;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="AVISSANTEGROUPE", type="text", length=65535, nullable=true)
@@ -36,9 +27,18 @@ class Statistiques
     private $avisapportcaloriquegroupe;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDSTATISTIQUE", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idstatistique;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Dieteticien", mappedBy="idstatistique")
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Dieteticien", mappedBy="idstatistique")
      */
     private $iddieteticien;
 

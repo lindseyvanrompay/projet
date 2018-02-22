@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Conseil
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDCONSEIL", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idconseil;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="INTITULE", type="text", length=65535, nullable=true)
@@ -36,9 +27,18 @@ class Conseil
     private $dateconseil;
 
     /**
-     * @var \Suivi
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Suivi")
+     * @ORM\Column(name="IDCONSEIL", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idconseil;
+
+    /**
+     * @var \ProjetBundle\Entity\Suivi
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Suivi")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDSUIVI", referencedColumnName="IDSUIVI")
      * })
@@ -46,9 +46,9 @@ class Conseil
     private $idsuivi;
 
     /**
-     * @var \Dieteticien
+     * @var \ProjetBundle\Entity\Dieteticien
      *
-     * @ORM\ManyToOne(targetEntity="Dieteticien")
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Dieteticien")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
      * })

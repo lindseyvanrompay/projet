@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Menu
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDMENU", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idmenu;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="NOMMENU", type="text", length=255, nullable=true)
@@ -29,9 +20,18 @@ class Menu
     private $nommenu;
 
     /**
-     * @var \Utilisateur
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\Column(name="IDMENU", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idmenu;
+
+    /**
+     * @var \ProjetBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
      * })
@@ -41,7 +41,7 @@ class Menu
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Mets", mappedBy="idmenu")
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Mets", mappedBy="idmenu")
      */
     private $idmets;
 

@@ -13,41 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Utilisateur
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDUTILISATEUR", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idutilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="NOMUTILISATEUR", type="text", length=255, nullable=true)
-     */
-    private $nomutilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PRENOMUTILISATEUR", type="text", length=255, nullable=true)
-     */
-    private $prenomutilisateur;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="ADRESSEMAILUTILISATEUR", type="text", length=255, nullable=true)
      */
     private $adressemailutilisateur;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="DATEDENAISSANCE", type="date", nullable=true)
-     */
-    private $datedenaissance;
 
     /**
      * @var integer
@@ -71,76 +41,22 @@ class Utilisateur
     private $mdputilisateur;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      *
-     * @ORM\ManyToMany(targetEntity="Dieteticien", inversedBy="idutilisateur")
-     * @ORM\JoinTable(name="abonnement",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
-     *   }
-     * )
+     * @ORM\Column(name="sexe", type="string", length=1, nullable=false)
      */
-    private $iddieteticien;
+    private $sexe;
 
     /**
-     * Constructor
+     * @var integer
+     *
+     * @ORM\Column(name="IDUTILISATEUR", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function __construct()
-    {
-        $this->iddieteticien = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $idutilisateur;
 
 
-    /**
-     * Set nomutilisateur
-     *
-     * @param string $nomutilisateur
-     *
-     * @return Utilisateur
-     */
-    public function setNomutilisateur($nomutilisateur)
-    {
-        $this->nomutilisateur = $nomutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get nomutilisateur
-     *
-     * @return string
-     */
-    public function getNomutilisateur()
-    {
-        return $this->nomutilisateur;
-    }
-
-    /**
-     * Set prenomutilisateur
-     *
-     * @param string $prenomutilisateur
-     *
-     * @return Utilisateur
-     */
-    public function setPrenomutilisateur($prenomutilisateur)
-    {
-        $this->prenomutilisateur = $prenomutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomutilisateur
-     *
-     * @return string
-     */
-    public function getPrenomutilisateur()
-    {
-        return $this->prenomutilisateur;
-    }
 
     /**
      * Set adressemailutilisateur
@@ -164,30 +80,6 @@ class Utilisateur
     public function getAdressemailutilisateur()
     {
         return $this->adressemailutilisateur;
-    }
-
-    /**
-     * Set datedenaissance
-     *
-     * @param \DateTime $datedenaissance
-     *
-     * @return Utilisateur
-     */
-    public function setDatedenaissance($datedenaissance)
-    {
-        $this->datedenaissance = $datedenaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get datedenaissance
-     *
-     * @return \DateTime
-     */
-    public function getDatedenaissance()
-    {
-        return $this->datedenaissance;
     }
 
     /**
@@ -263,6 +155,30 @@ class Utilisateur
     }
 
     /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Utilisateur
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
      * Get idutilisateur
      *
      * @return integer
@@ -270,39 +186,5 @@ class Utilisateur
     public function getIdutilisateur()
     {
         return $this->idutilisateur;
-    }
-
-    /**
-     * Add iddieteticien
-     *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
-     *
-     * @return Utilisateur
-     */
-    public function addIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien)
-    {
-        $this->iddieteticien[] = $iddieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Remove iddieteticien
-     *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
-     */
-    public function removeIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien)
-    {
-        $this->iddieteticien->removeElement($iddieteticien);
-    }
-
-    /**
-     * Get iddieteticien
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIddieteticien()
-    {
-        return $this->iddieteticien;
     }
 }

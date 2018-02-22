@@ -1,3 +1,12 @@
 projet_homepage:
     path:     /
     defaults: { _controller: ProjetBundle:Default:index }
+
+
+connexion:
+    path:     /connexion
+    defaults: { _controller: ProjetBundle:Default:connexion }
+
+creation_recette:
+    path:     /creation
+    defaults: { _controller: ProjetBundle:RecetteController:creation }

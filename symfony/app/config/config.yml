@@ -37,6 +37,10 @@ framework:
 
 # Twig Configuration
 twig:
+    form_themes:
+        - bootstrap_3_layout.html.twig
+    paths:
+        '%kernel.root_dir%/../src/ProjetBundle/Resources/views': ProjetViews
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 

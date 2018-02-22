@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% block stylesheet %}
+
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+
+    {{ form_start(form_inscription) }}
+
+    {{ form_errors(form_inscription) }}
+    {{ form_end(form_inscription) }}
+{% endblock %}

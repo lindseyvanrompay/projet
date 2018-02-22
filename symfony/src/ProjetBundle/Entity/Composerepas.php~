@@ -27,11 +27,11 @@ class Composerepas
     private $quantitemenu;
 
     /**
-     * @var \Repas
+     * @var \ProjetBundle\Entity\Repas
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Repas")
+     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Repas")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDREPAS", referencedColumnName="IDREPAS")
      * })
@@ -39,11 +39,11 @@ class Composerepas
     private $idrepas;
 
     /**
-     * @var \Boisson
+     * @var \ProjetBundle\Entity\Boisson
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Boisson")
+     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Boisson")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDBOISSON", referencedColumnName="IDBOISSON")
      * })
@@ -51,11 +51,11 @@ class Composerepas
     private $idboisson;
 
     /**
-     * @var \Menu
+     * @var \ProjetBundle\Entity\Menu
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Menu")
+     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Menu")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDMENU", referencedColumnName="IDMENU")
      * })

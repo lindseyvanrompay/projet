@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Qualite
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDQUALITE", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idqualite;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="AVISSANTE", type="text", length=65535, nullable=true)
@@ -43,9 +34,18 @@ class Qualite
     private $carence;
 
     /**
-     * @var \Statistiques
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Statistiques")
+     * @ORM\Column(name="IDQUALITE", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idqualite;
+
+    /**
+     * @var \ProjetBundle\Entity\Statistiques
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Statistiques")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDSTATISTIQUE", referencedColumnName="IDSTATISTIQUE")
      * })
@@ -53,9 +53,9 @@ class Qualite
     private $idstatistique;
 
     /**
-     * @var \Utilisateur
+     * @var \ProjetBundle\Entity\Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
      * })

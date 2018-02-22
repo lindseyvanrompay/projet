@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Boisson
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDBOISSON", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idboisson;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="NOMBOISSON", type="text", length=255, nullable=true)
@@ -36,9 +27,18 @@ class Boisson
     private $calorieboisson;
 
     /**
-     * @var \Recette
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Recette")
+     * @ORM\Column(name="IDBOISSON", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idboisson;
+
+    /**
+     * @var \ProjetBundle\Entity\Recette
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Recette")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
      * })

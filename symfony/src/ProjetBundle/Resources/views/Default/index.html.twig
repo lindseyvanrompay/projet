@@ -1,14 +1,12 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" href="style.css">
+{% extends 'base.html.twig' %}
 
-</head>
-<body>
+{% block head %}
+    {% block stylesheet %}
 
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
   <div class="container">
 
     <header>
@@ -20,28 +18,12 @@
         </div>
       </div>
     </header>
-      <form id="alimentation" method="post" action="alimentation.html">
-        <fieldset>
-          <legend>Connexion</legend>
-          <div class="form-group ">
-            <p><label for="pseudo" class="col-lg-4 col-sm-2" >Pseudo :</label>
-              <input type="text" class="form-control" name="pseudo" id="pseudo" value="" required/>
-            </p>
-          </div>
-          <div class="form-group">
-            <p>
-              <label for="pass" class="col-lg-4 col-sm-2" >Mot de passe :</label>
-              <input type="password" class="form-control" name="pass" id="pass" value="" required/>
-            </p>
-          </div>
-          <div class="form-group">
-            <p>
-              <input type="submit" name="connexion" value="Connexion" />
-              <a href="">Inscrivez-vous ici</a>
-            </p>
-          </div>
-        </fieldset>
-      </form>
+
+    {{ form_start(form_connexion) }}
+    {{ form_errors(form_connexion) }}
+    {{ form_end(form_connexion) }}
+
+    <a href="{{ path('connexion') }}"> Pas encore inscrit ? </a>
 
       <p>Fruits and fries est un site web avec une base de données uniquement dédié à l'alimentation de ses utilisateurs.Sur ce site, c'est votre santé qui est la priorité.Pour cela, différentes fonctionnalités existent :</p>
       <div class="row">
@@ -71,6 +53,3 @@
 
 
   <!-- Le reste du contenu -->
-
-</body>
-</html>

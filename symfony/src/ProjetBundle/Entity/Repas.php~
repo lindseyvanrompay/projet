@@ -41,26 +41,26 @@ class Repas
     private $calorie;
 
     /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
-     */
-    private $idutilisateur;
-
-    /**
-     * @var \Qualite
+     * @var \ProjetBundle\Entity\Qualite
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Qualite")
+     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Qualite")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDREPAS", referencedColumnName="IDQUALITE")
      * })
      */
     private $idrepas;
+
+    /**
+     * @var \ProjetBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
+     * })
+     */
+    private $idutilisateur;
 
 
 

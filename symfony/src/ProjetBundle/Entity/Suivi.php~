@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Suivi
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDSUIVI", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idsuivi;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="DATESUIVI", type="date", nullable=true)
@@ -36,9 +27,18 @@ class Suivi
     private $remarque;
 
     /**
-     * @var \Dieteticien
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Dieteticien")
+     * @ORM\Column(name="IDSUIVI", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idsuivi;
+
+    /**
+     * @var \ProjetBundle\Entity\Dieteticien
+     *
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Dieteticien")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
      * })
@@ -46,9 +46,9 @@ class Suivi
     private $iddieteticien;
 
     /**
-     * @var \Utilisateur
+     * @var \ProjetBundle\Entity\Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
      * })

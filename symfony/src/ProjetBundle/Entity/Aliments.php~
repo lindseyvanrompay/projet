@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Aliments
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDALIMENT", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idaliment;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="NOMALIMENT", type="text", length=255, nullable=true)
@@ -36,9 +27,18 @@ class Aliments
     private $caloriealiment;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDALIMENT", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idaliment;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Recette", inversedBy="idaliment")
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Recette", inversedBy="idaliment")
      * @ORM\JoinTable(name="composerecette",
      *   joinColumns={
      *     @ORM\JoinColumn(name="IDALIMENT", referencedColumnName="IDALIMENT")

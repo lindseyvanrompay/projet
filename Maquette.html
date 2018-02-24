@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  
+	<div class="container">
+	
+		<header>
+			<div class="row">
+				<h1>Fruits and fries</h1>
+				<h3>Bienvenue</h3>
+				<div class="col-md-offset-8 col-lg-4">
+					<img src="images/logo.jpg" class="img-responsive">
+				</div>
+			</div>
+		</header>
+			<form id="alimentation" method="post" action="alimentation.html">
+				<fieldset>
+					<legend>Connexion</legend>
+					<div class="form-group ">
+						<p><label for="pseudo" class="col-lg-4 col-sm-2" >Pseudo :</label>
+							<input type="text" class="form-control" name="pseudo" id="pseudo" value="" required/>
+						</p>
+					</div>
+					<div class="form-group">
+						<p>
+							<label for="pass" class="col-lg-4 col-sm-2" >Mot de passe :</label>
+							<input type="password" class="form-control" name="pass" id="pass" value="" required/>
+						</p>
+					</div>
+					<div class="form-group">
+						<p>
+							<input type="submit" name="connexion" value="Connexion" />
+							<a href="">Inscrivez-vous ici</a>
+						</p>
+					</div>
+				</fieldset>
+			</form>
+		
+			<p>Fruits and fries est un site web avec une base de données uniquement dédié à l'alimentation de ses utilisateurs.Sur ce site, c'est votre santé qui est la priorité.Pour cela, différentes fonctionnalités existent :</p>
+			<div class="row">
+			<div class="col-xs-6">
+			<p>Pour les utilisateurs :
+				<ul>
+					<li>La saisie de repas effectués</li>
+					<li>La création de menus et recettes</li>
+					<li>Le suivi de votre alimentation</li>
+					<li>L'abonnement à un ou plusieurs diététicien(s)</li>
+					<li>L'accès à des conseils alimentaires vous étant destinés fournis par un diététicien</li>
+				</ul>
+			</p>
+			</div>
+			<div class="col-xs-6 col-sm-6">
+			<p>Pour les diététiciens :
+				<ul>
+					<li>L'accès des statistiques sur l'alimentation d'un groupe d'utilisateurs, vous permettant de rester informer sur l'alimentation de ce groupe</li>
+					<li>La saisie de conseils alimentaires pour guider les utilisateurs vers une meilleure alimentation</li>
+				</ul>
+			</p>
+			</div>
+		</div>
+	
+  </div>
+  
+  
+  
+  <!-- Le reste du contenu -->
+  
+</body>
+</html>

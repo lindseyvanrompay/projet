@@ -16,14 +16,16 @@ class FormCreationRecetteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nomrecette')
-        ->add('aliment', EntityType::class, array(
+      /*  ->add('aliment', EntityType::class, array(
             'class' => "ProjetBundle:Aliments",
             'choice_label' => 'nomAliment'
             )
         )
+        */
+        ->add('aliment')
        ->add('submit', SubmitType::class,
           array(
-            'label' => 'Connexion',
+            'label' => 'Creation',
             'attr' =>  array('class'=>'btn btn-success')
             )
         );

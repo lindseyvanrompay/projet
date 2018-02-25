@@ -1,0 +1,54 @@
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/projet.js') }}"></script>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4 col-md-offset-4">
+
+      {{ form_start(form_creation) }}
+      {{ form_errors(form_creation) }}
+      {{ form_row(form_creation.nomrecette) }}
+
+      <div id="rows_aliment">
+      <div id="label_aliment">
+        <div class="row">
+          <div class="col">
+            {{ form_label(form_creation.aliment) }}
+          </div>
+        </div>
+
+        <div class="row" id="row_aliment">
+          <div class="col-sm-8">
+            {{ form_widget(form_creation.aliment) }}
+          </div>
+
+          <div class="col-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <button type="button" id="addButton" class="btn btn-primary mb-2">+</button>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-sm-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <button type="button" id="removeButton" class="btn btn-primary mb-2">-</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      {{ form_row(form_creation.submit) }}
+      {{ form_end(form_creation) }}
+    </div>
+  </div>
+
+</div>
+</div>
+

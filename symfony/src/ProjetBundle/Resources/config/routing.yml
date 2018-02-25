@@ -10,3 +10,7 @@ connexion:
 creation_recette:
     path:     /creation
     defaults: { _controller: ProjetBundle:Recette:creation }
+
+test:
+    path:    /test
+    defaults: { _controller: ProjetBundle:Default:test }

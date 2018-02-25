@@ -8,9 +8,6 @@
 
 {% block body %}
 
-{{ form_start(form_creation) }}
-
-{{ form_errors(form_creation) }}
-{{ form_end(form_creation) }}
+{{ include("@ProjetViews/FormViews/FormCreationRecette.html.twig") }}
 
 {% endblock %}

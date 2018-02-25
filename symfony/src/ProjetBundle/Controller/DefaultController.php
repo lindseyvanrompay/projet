@@ -3,8 +3,10 @@
 namespace ProjetBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 use ProjetBundle\Form\FormConnexionType;
 use ProjetBundle\Form\FormInscriptionType;
 use Symfony\Component\Form\FormError;
@@ -49,4 +51,7 @@ class DefaultController extends Controller
     return $this->render('@ProjetViews/inscription.html.twig',array('form_inscription' => $form_inscription->createView()));
   }
 
+  public function testAction(Request $request){
+     return $this->render('@ProjetViews/test.html.twig',array());
+  }
 }

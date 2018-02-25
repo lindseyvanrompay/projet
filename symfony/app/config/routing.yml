@@ -1,6 +1,6 @@
 projet:
     resource: "@ProjetBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /projet
 
 app:
     resource: "@AppBundle/Controller/"

@@ -28,9 +28,13 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0"
 
+=======
+        "incenteev/composer-parameter-handler": "^2.0"
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
         "incenteev/composer-parameter-handler": "^2.0"
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2018-02-21 11:29:17] doctrine.DEBUG: SHOW FULL TABLES WHERE Table_type = 'BASE TABLE' [] []
 [2018-02-21 11:29:17] doctrine.DEBUG: SELECT COLUMN_NAME AS Field, COLUMN_TYPE AS Type, IS_NULLABLE AS `Null`, COLUMN_KEY AS `Key`, COLUMN_DEFAULT AS `Default`, EXTRA AS Extra, COLUMN_COMMENT AS Comment, CHARACTER_SET_NAME AS CharacterSet, COLLATION_NAME AS Collation FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'projet_acsi' AND TABLE_NAME = 'ABONNEMENT' [] []
 [2018-02-21 11:29:17] doctrine.DEBUG: SELECT DISTINCT k.`CONSTRAINT_NAME`, k.`COLUMN_NAME`, k.`REFERENCED_TABLE_NAME`, k.`REFERENCED_COLUMN_NAME` /*!50116 , c.update_rule, c.delete_rule */ FROM information_schema.key_column_usage k /*!50116 INNER JOIN information_schema.referential_constraints c ON   c.constraint_name = k.constraint_name AND   c.table_name = 'ABONNEMENT' */ WHERE k.table_name = 'ABONNEMENT' AND k.table_schema = 'projet_acsi' /*!50116 AND c.constraint_schema = 'projet_acsi' */ AND k.`REFERENCED_COLUMN_NAME` is not NULL [] []
@@ -2771,6 +2772,8 @@
 [2018-02-25 14:03:14] php.DEBUG: Warning: fsockopen(): unable to connect to 127.0.0.1:8000 (Connection refused) {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\SilencedErrorContext: {\"severity\":2,\"file\":\"/home/lindsey/Documents/L3_MIAGE/projet/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Command/ServerCommand.php\",\"line\":61})"} []
 [2018-02-25 15:31:15] php.DEBUG: Warning: fsockopen(): unable to connect to 127.0.0.1:8000 (Connection refused) {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\SilencedErrorContext: {\"severity\":2,\"file\":\"/home/lindsey/Documents/L3_MIAGE/projet/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Command/ServerCommand.php\",\"line\":61})"} []
 =======
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 [2018-02-25 15:28:37] php.DEBUG: Warning: fsockopen(): unable to connect to 127.0.0.1:8000 (Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée. ) {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\SilencedErrorContext: {\"severity\":2,\"file\":\"C:\\\\wamp\\\\www\\\\projet-views\\\\symfony\\\\vendor\\\\symfony\\\\symfony\\\\src\\\\Symfony\\\\Bundle\\\\FrameworkBundle\\\\Command\\\\ServerCommand.php\",\"line\":61})"} []
 [2018-02-25 15:29:26] request.INFO: Matched route "projet_homepage". {"route":"projet_homepage","route_parameters":{"_controller":"Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController::urlRedirectAction","path":"/projet/","permanent":true,"scheme":null,"httpPort":8000,"httpsPort":443,"_route":"projet_homepage"},"request_uri":"http://localhost:8000/projet","method":"GET"} []
 [2018-02-25 15:29:26] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
@@ -2782,4 +2785,7 @@
 [2018-02-25 15:35:21] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2018-02-25 15:35:24] request.CRITICAL: Uncaught PHP Exception Doctrine\DBAL\Exception\ConnectionException: "An exception occured in driver: SQLSTATE[HY000] [1049] Base 'symfony' inconnue" at C:\wamp\www\projet-views\symfony\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\AbstractMySQLDriver.php line 103 {"exception":"[object] (Doctrine\\DBAL\\Exception\\ConnectionException(code: 0): An exception occured in driver: SQLSTATE[HY000] [1049] Base 'symfony' inconnue at C:\\wamp\\www\\projet-views\\symfony\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\AbstractMySQLDriver.php:103, Doctrine\\DBAL\\Driver\\PDOException(code: 1049): SQLSTATE[HY000] [1049] Base 'symfony' inconnue at C:\\wamp\\www\\projet-views\\symfony\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\PDOConnection.php:47, PDOException(code: 1049): SQLSTATE[HY000] [1049] Base 'symfony' inconnue at C:\\wamp\\www\\projet-views\\symfony\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\PDOConnection.php:43)"} []
 [2018-02-25 15:35:26] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"3aeb83","_route":"_wdt"},"request_uri":"http://localhost:8000/_wdt/3aeb83","method":"GET"} []
+<<<<<<< HEAD
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
+=======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b

@@ -7,125 +7,40 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Boisson
  *
- * @ORM\Table(name="BOISSON", uniqueConstraints={@ORM\UniqueConstraint(name="I_FK_BOISSON_RECETTE", columns={"IDRECETTE"})})
+ * @ORM\Table(name="boisson", indexes={@ORM\Index(name="fk_boisson_recette", columns={"idrecette"})})
  * @ORM\Entity
  */
 class Boisson
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMBOISSON", type="text", length=255, nullable=true)
-     */
-    private $nomboisson;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CALORIEBOISSON", type="bigint", nullable=true)
-     */
-    private $calorieboisson;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDBOISSON", type="bigint")
+     * @ORM\Column(name="idboisson", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idboisson;
 
     /**
-     * @var \ProjetBundle\Entity\Recette
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Recette")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
-     * })
+     * @ORM\Column(name="idrecette", type="bigint", nullable=false)
      */
     private $idrecette;
 
-
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="nomboisson", type="string", length=32, nullable=true, options={"fixed"=true})
+     */
+    private $nomboisson;
 
     /**
-     * Set nomboisson
+     * @var int|null
      *
-     * @param string $nomboisson
-     *
-     * @return Boisson
+     * @ORM\Column(name="calorieboisson", type="bigint", nullable=true)
      */
-    public function setNomboisson($nomboisson)
-    {
-        $this->nomboisson = $nomboisson;
+    private $calorieboisson;
 
-        return $this;
-    }
 
-    /**
-     * Get nomboisson
-     *
-     * @return string
-     */
-    public function getNomboisson()
-    {
-        return $this->nomboisson;
-    }
-
-    /**
-     * Set calorieboisson
-     *
-     * @param integer $calorieboisson
-     *
-     * @return Boisson
-     */
-    public function setCalorieboisson($calorieboisson)
-    {
-        $this->calorieboisson = $calorieboisson;
-
-        return $this;
-    }
-
-    /**
-     * Get calorieboisson
-     *
-     * @return integer
-     */
-    public function getCalorieboisson()
-    {
-        return $this->calorieboisson;
-    }
-
-    /**
-     * Get idboisson
-     *
-     * @return integer
-     */
-    public function getIdboisson()
-    {
-        return $this->idboisson;
-    }
-
-    /**
-     * Set idrecette
-     *
-     * @param \ProjetBundle\Entity\Recette $idrecette
-     *
-     * @return Boisson
-     */
-    public function setIdrecette(\ProjetBundle\Entity\Recette $idrecette = null)
-    {
-        $this->idrecette = $idrecette;
-
-        return $this;
-    }
-
-    /**
-     * Get idrecette
-     *
-     * @return \ProjetBundle\Entity\Recette
-     */
-    public function getIdrecette()
-    {
-        return $this->idrecette;
-    }
 }

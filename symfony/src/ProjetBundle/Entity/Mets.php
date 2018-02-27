@@ -7,130 +7,54 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Mets
  *
- * @ORM\Table(name="METS", uniqueConstraints={@ORM\UniqueConstraint(name="I_FK_METS_RECETTE", columns={"IDRECETTE"})}, indexes={@ORM\Index(name="I_FK_METS_CATEGORIE", columns={"IDCATEGORIE"})})
+ * @ORM\Table(name="mets", indexes={@ORM\Index(name="fk_mets_recette", columns={"idrecette"}), @ORM\Index(name="fk_mets_categorie", columns={"idcategorie"})})
  * @ORM\Entity
  */
 class Mets
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMMETS", type="text", length=255, nullable=true)
-     */
-    private $nommets;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CALORIEMETS", type="bigint", nullable=true)
-     */
-    private $caloriemets;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDMETS", type="bigint")
+     * @ORM\Column(name="idmets", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idmets;
 
     /**
-     * @var \ProjetBundle\Entity\Recette
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Recette")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
-     * })
+     * @ORM\Column(name="idrecette", type="bigint", nullable=false)
      */
     private $idrecette;
 
     /**
-     * @var \ProjetBundle\Entity\Categorie
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDCATEGORIE", referencedColumnName="IDCATEGORIE")
-     * })
+     * @ORM\Column(name="idcategorie", type="bigint", nullable=false)
      */
     private $idcategorie;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Menu", inversedBy="idmets")
-     * @ORM\JoinTable(name="composemenu",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="IDMETS", referencedColumnName="IDMETS")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IDMENU", referencedColumnName="IDMENU")
-     *   }
-     * )
+     * @ORM\Column(name="nommets", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idmenu;
+    private $nommets;
 
     /**
-     * Constructor
+     * @var int|null
+     *
+     * @ORM\Column(name="caloriemets", type="bigint", nullable=true)
      */
-    public function __construct()
-    {
-        $this->idmenu = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $caloriemets;
+
 
 
     /**
-     * Set nommets
+     * Get idmets.
      *
-     * @param string $nommets
-     *
-     * @return Mets
-     */
-    public function setNommets($nommets)
-    {
-        $this->nommets = $nommets;
-
-        return $this;
-    }
-
-    /**
-     * Get nommets
-     *
-     * @return string
-     */
-    public function getNommets()
-    {
-        return $this->nommets;
-    }
-
-    /**
-     * Set caloriemets
-     *
-     * @param integer $caloriemets
-     *
-     * @return Mets
-     */
-    public function setCaloriemets($caloriemets)
-    {
-        $this->caloriemets = $caloriemets;
-
-        return $this;
-    }
-
-    /**
-     * Get caloriemets
-     *
-     * @return integer
-     */
-    public function getCaloriemets()
-    {
-        return $this->caloriemets;
-    }
-
-    /**
-     * Get idmets
-     *
-     * @return integer
+     * @return int
      */
     public function getIdmets()
     {
@@ -138,13 +62,13 @@ class Mets
     }
 
     /**
-     * Set idrecette
+     * Set idrecette.
      *
-     * @param \ProjetBundle\Entity\Recette $idrecette
+     * @param int $idrecette
      *
      * @return Mets
      */
-    public function setIdrecette(\ProjetBundle\Entity\Recette $idrecette = null)
+    public function setIdrecette($idrecette)
     {
         $this->idrecette = $idrecette;
 
@@ -152,9 +76,9 @@ class Mets
     }
 
     /**
-     * Get idrecette
+     * Get idrecette.
      *
-     * @return \ProjetBundle\Entity\Recette
+     * @return int
      */
     public function getIdrecette()
     {
@@ -162,13 +86,13 @@ class Mets
     }
 
     /**
-     * Set idcategorie
+     * Set idcategorie.
      *
-     * @param \ProjetBundle\Entity\Categorie $idcategorie
+     * @param int $idcategorie
      *
      * @return Mets
      */
-    public function setIdcategorie(\ProjetBundle\Entity\Categorie $idcategorie = null)
+    public function setIdcategorie($idcategorie)
     {
         $this->idcategorie = $idcategorie;
 
@@ -176,9 +100,9 @@ class Mets
     }
 
     /**
-     * Get idcategorie
+     * Get idcategorie.
      *
-     * @return \ProjetBundle\Entity\Categorie
+     * @return int
      */
     public function getIdcategorie()
     {
@@ -186,36 +110,50 @@ class Mets
     }
 
     /**
-     * Add idmenu
+     * Set nommets.
      *
-     * @param \ProjetBundle\Entity\Menu $idmenu
+     * @param string|null $nommets
      *
      * @return Mets
      */
-    public function addIdmenu(\ProjetBundle\Entity\Menu $idmenu)
+    public function setNommets($nommets = null)
     {
-        $this->idmenu[] = $idmenu;
+        $this->nommets = $nommets;
 
         return $this;
     }
 
     /**
-     * Remove idmenu
+     * Get nommets.
      *
-     * @param \ProjetBundle\Entity\Menu $idmenu
+     * @return string|null
      */
-    public function removeIdmenu(\ProjetBundle\Entity\Menu $idmenu)
+    public function getNommets()
     {
-        $this->idmenu->removeElement($idmenu);
+        return $this->nommets;
     }
 
     /**
-     * Get idmenu
+     * Set caloriemets.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param int|null $caloriemets
+     *
+     * @return Mets
      */
-    public function getIdmenu()
+    public function setCaloriemets($caloriemets = null)
     {
-        return $this->idmenu;
+        $this->caloriemets = $caloriemets;
+
+        return $this;
+    }
+
+    /**
+     * Get caloriemets.
+     *
+     * @return int|null
+     */
+    public function getCaloriemets()
+    {
+        return $this->caloriemets;
     }
 }

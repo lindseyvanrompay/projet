@@ -7,65 +7,130 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Utilisateur
  *
- * @ORM\Table(name="UTILISATEUR")
+ * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="ProjetBundle\Entity\UtilisateurRepository")
  */
 class Utilisateur
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="ADRESSEMAILUTILISATEUR", type="text", length=255, nullable=true)
-     */
-    private $adressemailutilisateur;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="AGE", type="bigint", nullable=true)
-     */
-    private $age;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PSEUDOUTILISATEUR", type="text", length=255, nullable=true)
-     */
-    private $pseudoutilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MDPUTILISATEUR", type="text", length=255, nullable=true)
-     */
-    private $mdputilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sexe", type="string", length=1, nullable=false)
-     */
-    private $sexe;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDUTILISATEUR", type="bigint")
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idutilisateur;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="nomutilisateur", type="string", length=32, nullable=true, options={"fixed"=true})
+     */
+    private $nomutilisateur;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="prenomutilisateur", type="string", length=32, nullable=true, options={"fixed"=true})
+     */
+    private $prenomutilisateur;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="adressemailutilisateur", type="string", length=128, nullable=true, options={"fixed"=true})
+     */
+    private $adressemailutilisateur;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="age", type="bigint", nullable=true)
+     */
+    private $age;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="pseudoutilisateur", type="string", length=16, nullable=true, options={"fixed"=true})
+     */
+    private $pseudoutilisateur;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mdputilisateur", type="string", length=16, nullable=true, options={"fixed"=true})
+     */
+    private $mdputilisateur;
+
 
 
     /**
-     * Set adressemailutilisateur
+     * Get idutilisateur.
      *
-     * @param string $adressemailutilisateur
+     * @return int
+     */
+    public function getIdutilisateur()
+    {
+        return $this->idutilisateur;
+    }
+
+    /**
+     * Set nomutilisateur.
+     *
+     * @param string|null $nomutilisateur
      *
      * @return Utilisateur
      */
-    public function setAdressemailutilisateur($adressemailutilisateur)
+    public function setNomutilisateur($nomutilisateur = null)
+    {
+        $this->nomutilisateur = $nomutilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get nomutilisateur.
+     *
+     * @return string|null
+     */
+    public function getNomutilisateur()
+    {
+        return $this->nomutilisateur;
+    }
+
+    /**
+     * Set prenomutilisateur.
+     *
+     * @param string|null $prenomutilisateur
+     *
+     * @return Utilisateur
+     */
+    public function setPrenomutilisateur($prenomutilisateur = null)
+    {
+        $this->prenomutilisateur = $prenomutilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomutilisateur.
+     *
+     * @return string|null
+     */
+    public function getPrenomutilisateur()
+    {
+        return $this->prenomutilisateur;
+    }
+
+    /**
+     * Set adressemailutilisateur.
+     *
+     * @param string|null $adressemailutilisateur
+     *
+     * @return Utilisateur
+     */
+    public function setAdressemailutilisateur($adressemailutilisateur = null)
     {
         $this->adressemailutilisateur = $adressemailutilisateur;
 
@@ -73,9 +138,9 @@ class Utilisateur
     }
 
     /**
-     * Get adressemailutilisateur
+     * Get adressemailutilisateur.
      *
-     * @return string
+     * @return string|null
      */
     public function getAdressemailutilisateur()
     {
@@ -83,13 +148,13 @@ class Utilisateur
     }
 
     /**
-     * Set age
+     * Set age.
      *
-     * @param integer $age
+     * @param int|null $age
      *
      * @return Utilisateur
      */
-    public function setAge($age)
+    public function setAge($age = null)
     {
         $this->age = $age;
 
@@ -97,9 +162,9 @@ class Utilisateur
     }
 
     /**
-     * Get age
+     * Get age.
      *
-     * @return integer
+     * @return int|null
      */
     public function getAge()
     {
@@ -107,13 +172,13 @@ class Utilisateur
     }
 
     /**
-     * Set pseudoutilisateur
+     * Set pseudoutilisateur.
      *
-     * @param string $pseudoutilisateur
+     * @param string|null $pseudoutilisateur
      *
      * @return Utilisateur
      */
-    public function setPseudoutilisateur($pseudoutilisateur)
+    public function setPseudoutilisateur($pseudoutilisateur = null)
     {
         $this->pseudoutilisateur = $pseudoutilisateur;
 
@@ -121,9 +186,9 @@ class Utilisateur
     }
 
     /**
-     * Get pseudoutilisateur
+     * Get pseudoutilisateur.
      *
-     * @return string
+     * @return string|null
      */
     public function getPseudoutilisateur()
     {
@@ -131,13 +196,13 @@ class Utilisateur
     }
 
     /**
-     * Set mdputilisateur
+     * Set mdputilisateur.
      *
-     * @param string $mdputilisateur
+     * @param string|null $mdputilisateur
      *
      * @return Utilisateur
      */
-    public function setMdputilisateur($mdputilisateur)
+    public function setMdputilisateur($mdputilisateur = null)
     {
         $this->mdputilisateur = $mdputilisateur;
 
@@ -145,46 +210,12 @@ class Utilisateur
     }
 
     /**
-     * Get mdputilisateur
+     * Get mdputilisateur.
      *
-     * @return string
+     * @return string|null
      */
     public function getMdputilisateur()
     {
         return $this->mdputilisateur;
-    }
-
-    /**
-     * Set sexe
-     *
-     * @param string $sexe
-     *
-     * @return Utilisateur
-     */
-    public function setSexe($sexe)
-    {
-        $this->sexe = $sexe;
-
-        return $this;
-    }
-
-    /**
-     * Get sexe
-     *
-     * @return string
-     */
-    public function getSexe()
-    {
-        return $this->sexe;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return integer
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 }

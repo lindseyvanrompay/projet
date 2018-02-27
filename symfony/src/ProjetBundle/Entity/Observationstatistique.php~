@@ -1,0 +1,41 @@
+<?php
+
+namespace ProjetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Observationstatistique
+ *
+ * @ORM\Table(name="observationstatistique", indexes={@ORM\Index(name="fk_observationstatistique_statistiques", columns={"idstatistique"})})
+ * @ORM\Entity
+ */
+class Observationstatistique
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="iddieteticien", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $iddieteticien;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idstatistique", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idstatistique;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="dateobservation", type="date", nullable=true)
+     */
+    private $dateobservation;
+
+
+}

@@ -7,108 +7,54 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Conseil
  *
- * @ORM\Table(name="CONSEIL", indexes={@ORM\Index(name="I_FK_CONSEIL_SUIVI", columns={"IDSUIVI"}), @ORM\Index(name="I_FK_CONSEIL_DIETETICIEN", columns={"IDDIETETICIEN"})})
+ * @ORM\Table(name="conseil", indexes={@ORM\Index(name="fk_conseil_suivi", columns={"idsuivi"}), @ORM\Index(name="fk_conseil_dieteticien", columns={"iddieteticien"})})
  * @ORM\Entity
  */
 class Conseil
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="INTITULE", type="text", length=65535, nullable=true)
-     */
-    private $intitule;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="DATECONSEIL", type="date", nullable=true)
-     */
-    private $dateconseil;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDCONSEIL", type="bigint")
+     * @ORM\Column(name="idconseil", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idconseil;
 
     /**
-     * @var \ProjetBundle\Entity\Suivi
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Suivi")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDSUIVI", referencedColumnName="IDSUIVI")
-     * })
+     * @ORM\Column(name="idsuivi", type="bigint", nullable=false)
      */
     private $idsuivi;
 
     /**
-     * @var \ProjetBundle\Entity\Dieteticien
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Dieteticien")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
-     * })
+     * @ORM\Column(name="iddieteticien", type="bigint", nullable=false)
      */
     private $iddieteticien;
 
-
-
     /**
-     * Set intitule
+     * @var string|null
      *
-     * @param string $intitule
-     *
-     * @return Conseil
+     * @ORM\Column(name="intitule", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function setIntitule($intitule)
-    {
-        $this->intitule = $intitule;
-
-        return $this;
-    }
+    private $intitule;
 
     /**
-     * Get intitule
+     * @var \DateTime|null
      *
-     * @return string
+     * @ORM\Column(name="dateconseil", type="date", nullable=true)
      */
-    public function getIntitule()
-    {
-        return $this->intitule;
-    }
+    private $dateconseil;
+
+
 
     /**
-     * Set dateconseil
+     * Get idconseil.
      *
-     * @param \DateTime $dateconseil
-     *
-     * @return Conseil
-     */
-    public function setDateconseil($dateconseil)
-    {
-        $this->dateconseil = $dateconseil;
-
-        return $this;
-    }
-
-    /**
-     * Get dateconseil
-     *
-     * @return \DateTime
-     */
-    public function getDateconseil()
-    {
-        return $this->dateconseil;
-    }
-
-    /**
-     * Get idconseil
-     *
-     * @return integer
+     * @return int
      */
     public function getIdconseil()
     {
@@ -116,13 +62,13 @@ class Conseil
     }
 
     /**
-     * Set idsuivi
+     * Set idsuivi.
      *
-     * @param \ProjetBundle\Entity\Suivi $idsuivi
+     * @param int $idsuivi
      *
      * @return Conseil
      */
-    public function setIdsuivi(\ProjetBundle\Entity\Suivi $idsuivi = null)
+    public function setIdsuivi($idsuivi)
     {
         $this->idsuivi = $idsuivi;
 
@@ -130,9 +76,9 @@ class Conseil
     }
 
     /**
-     * Get idsuivi
+     * Get idsuivi.
      *
-     * @return \ProjetBundle\Entity\Suivi
+     * @return int
      */
     public function getIdsuivi()
     {
@@ -140,13 +86,13 @@ class Conseil
     }
 
     /**
-     * Set iddieteticien
+     * Set iddieteticien.
      *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
+     * @param int $iddieteticien
      *
      * @return Conseil
      */
-    public function setIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien = null)
+    public function setIddieteticien($iddieteticien)
     {
         $this->iddieteticien = $iddieteticien;
 
@@ -154,12 +100,60 @@ class Conseil
     }
 
     /**
-     * Get iddieteticien
+     * Get iddieteticien.
      *
-     * @return \ProjetBundle\Entity\Dieteticien
+     * @return int
      */
     public function getIddieteticien()
     {
         return $this->iddieteticien;
+    }
+
+    /**
+     * Set intitule.
+     *
+     * @param string|null $intitule
+     *
+     * @return Conseil
+     */
+    public function setIntitule($intitule = null)
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * Get intitule.
+     *
+     * @return string|null
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
+     * Set dateconseil.
+     *
+     * @param \DateTime|null $dateconseil
+     *
+     * @return Conseil
+     */
+    public function setDateconseil($dateconseil = null)
+    {
+        $this->dateconseil = $dateconseil;
+
+        return $this;
+    }
+
+    /**
+     * Get dateconseil.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateconseil()
+    {
+        return $this->dateconseil;
     }
 }

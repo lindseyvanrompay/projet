@@ -7,60 +7,26 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categorie
  *
- * @ORM\Table(name="CATEGORIE")
+ * @ORM\Table(name="categorie")
  * @ORM\Entity
  */
 class Categorie
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMCATEGORIE", type="text", length=255, nullable=true)
-     */
-    private $nomcategorie;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDCATEGORIE", type="bigint")
+     * @ORM\Column(name="idcategorie", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idcategorie;
 
-
-
     /**
-     * Set nomcategorie
+     * @var string|null
      *
-     * @param string $nomcategorie
-     *
-     * @return Categorie
+     * @ORM\Column(name="nomcategorie", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    public function setNomcategorie($nomcategorie)
-    {
-        $this->nomcategorie = $nomcategorie;
+    private $nomcategorie;
 
-        return $this;
-    }
 
-    /**
-     * Get nomcategorie
-     *
-     * @return string
-     */
-    public function getNomcategorie()
-    {
-        return $this->nomcategorie;
-    }
-
-    /**
-     * Get idcategorie
-     *
-     * @return integer
-     */
-    public function getIdcategorie()
-    {
-        return $this->idcategorie;
-    }
 }

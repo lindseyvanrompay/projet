@@ -7,119 +7,62 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Composerepas
  *
- * @ORM\Table(name="COMPOSEREPAS", indexes={@ORM\Index(name="I_FK_COMPOSEREPAS_REPAS", columns={"IDREPAS"}), @ORM\Index(name="I_FK_COMPOSEREPAS_BOISSON", columns={"IDBOISSON"}), @ORM\Index(name="I_FK_COMPOSEREPAS_MENU", columns={"IDMENU"})})
+ * @ORM\Table(name="composerepas", indexes={@ORM\Index(name="fk_composerepas_boisson", columns={"idboisson"}), @ORM\Index(name="fk_composerepas_menu", columns={"idmenu"})})
  * @ORM\Entity
  */
 class Composerepas
 {
     /**
-     * @var integer
+     * @var int
      *
-     * @ORM\Column(name="QUANTITEBOISSON", type="bigint", nullable=true)
-     */
-    private $quantiteboisson;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="QUANTITEMENU", type="bigint", nullable=true)
-     */
-    private $quantitemenu;
-
-    /**
-     * @var \ProjetBundle\Entity\Repas
-     *
+     * @ORM\Column(name="idrepas", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Repas")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDREPAS", referencedColumnName="IDREPAS")
-     * })
      */
     private $idrepas;
 
     /**
-     * @var \ProjetBundle\Entity\Boisson
+     * @var int
      *
+     * @ORM\Column(name="idboisson", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Boisson")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDBOISSON", referencedColumnName="IDBOISSON")
-     * })
      */
     private $idboisson;
 
     /**
-     * @var \ProjetBundle\Entity\Menu
+     * @var int
      *
+     * @ORM\Column(name="idmenu", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Menu")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDMENU", referencedColumnName="IDMENU")
-     * })
      */
     private $idmenu;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="quantiteboisson", type="bigint", nullable=true)
+     */
+    private $quantiteboisson;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="quantitemenu", type="bigint", nullable=true)
+     */
+    private $quantitemenu;
+
 
 
     /**
-     * Set quantiteboisson
+     * Set idrepas.
      *
-     * @param integer $quantiteboisson
+     * @param int $idrepas
      *
      * @return Composerepas
      */
-    public function setQuantiteboisson($quantiteboisson)
-    {
-        $this->quantiteboisson = $quantiteboisson;
-
-        return $this;
-    }
-
-    /**
-     * Get quantiteboisson
-     *
-     * @return integer
-     */
-    public function getQuantiteboisson()
-    {
-        return $this->quantiteboisson;
-    }
-
-    /**
-     * Set quantitemenu
-     *
-     * @param integer $quantitemenu
-     *
-     * @return Composerepas
-     */
-    public function setQuantitemenu($quantitemenu)
-    {
-        $this->quantitemenu = $quantitemenu;
-
-        return $this;
-    }
-
-    /**
-     * Get quantitemenu
-     *
-     * @return integer
-     */
-    public function getQuantitemenu()
-    {
-        return $this->quantitemenu;
-    }
-
-    /**
-     * Set idrepas
-     *
-     * @param \ProjetBundle\Entity\Repas $idrepas
-     *
-     * @return Composerepas
-     */
-    public function setIdrepas(\ProjetBundle\Entity\Repas $idrepas)
+    public function setIdrepas($idrepas)
     {
         $this->idrepas = $idrepas;
 
@@ -127,9 +70,9 @@ class Composerepas
     }
 
     /**
-     * Get idrepas
+     * Get idrepas.
      *
-     * @return \ProjetBundle\Entity\Repas
+     * @return int
      */
     public function getIdrepas()
     {
@@ -137,13 +80,13 @@ class Composerepas
     }
 
     /**
-     * Set idboisson
+     * Set idboisson.
      *
-     * @param \ProjetBundle\Entity\Boisson $idboisson
+     * @param int $idboisson
      *
      * @return Composerepas
      */
-    public function setIdboisson(\ProjetBundle\Entity\Boisson $idboisson)
+    public function setIdboisson($idboisson)
     {
         $this->idboisson = $idboisson;
 
@@ -151,9 +94,9 @@ class Composerepas
     }
 
     /**
-     * Get idboisson
+     * Get idboisson.
      *
-     * @return \ProjetBundle\Entity\Boisson
+     * @return int
      */
     public function getIdboisson()
     {
@@ -161,13 +104,13 @@ class Composerepas
     }
 
     /**
-     * Set idmenu
+     * Set idmenu.
      *
-     * @param \ProjetBundle\Entity\Menu $idmenu
+     * @param int $idmenu
      *
      * @return Composerepas
      */
-    public function setIdmenu(\ProjetBundle\Entity\Menu $idmenu)
+    public function setIdmenu($idmenu)
     {
         $this->idmenu = $idmenu;
 
@@ -175,12 +118,60 @@ class Composerepas
     }
 
     /**
-     * Get idmenu
+     * Get idmenu.
      *
-     * @return \ProjetBundle\Entity\Menu
+     * @return int
      */
     public function getIdmenu()
     {
         return $this->idmenu;
+    }
+
+    /**
+     * Set quantiteboisson.
+     *
+     * @param int|null $quantiteboisson
+     *
+     * @return Composerepas
+     */
+    public function setQuantiteboisson($quantiteboisson = null)
+    {
+        $this->quantiteboisson = $quantiteboisson;
+
+        return $this;
+    }
+
+    /**
+     * Get quantiteboisson.
+     *
+     * @return int|null
+     */
+    public function getQuantiteboisson()
+    {
+        return $this->quantiteboisson;
+    }
+
+    /**
+     * Set quantitemenu.
+     *
+     * @param int|null $quantitemenu
+     *
+     * @return Composerepas
+     */
+    public function setQuantitemenu($quantitemenu = null)
+    {
+        $this->quantitemenu = $quantitemenu;
+
+        return $this;
+    }
+
+    /**
+     * Get quantitemenu.
+     *
+     * @return int|null
+     */
+    public function getQuantitemenu()
+    {
+        return $this->quantitemenu;
     }
 }

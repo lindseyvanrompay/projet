@@ -7,67 +7,95 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Repas
  *
- * @ORM\Table(name="REPAS", indexes={@ORM\Index(name="I_FK_REPAS_UTILISATEUR", columns={"IDUTILISATEUR"}), @ORM\Index(name="I_FK_REPAS_QUALITE", columns={"IDQUALITE"})})
+ * @ORM\Table(name="repas", indexes={@ORM\Index(name="fk_repas_utilisateur", columns={"idutilisateur"}), @ORM\Index(name="fk_repas_qualite", columns={"idqualite"})})
  * @ORM\Entity
  */
 class Repas
 {
     /**
-     * @var integer
+     * @var int
      *
-     * @ORM\Column(name="IDQUALITE", type="bigint", nullable=false)
-     */
-    private $idqualite;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="NOMREPAS", type="text", length=255, nullable=true)
-     */
-    private $nomrepas;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="INTITULEREPAS", type="text", length=65535, nullable=true)
-     */
-    private $intitulerepas;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CALORIE", type="bigint", nullable=true)
-     */
-    private $calorie;
-
-    /**
-     * @var \ProjetBundle\Entity\Qualite
-     *
+     * @ORM\Column(name="idrepas", type="bigint", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ProjetBundle\Entity\Qualite")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDREPAS", referencedColumnName="IDQUALITE")
-     * })
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idrepas;
 
     /**
-     * @var \ProjetBundle\Entity\Utilisateur
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      */
     private $idutilisateur;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idqualite", type="bigint", nullable=false)
+     */
+    private $idqualite;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="nomrepas", type="string", length=32, nullable=true, options={"fixed"=true})
+     */
+    private $nomrepas;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="intitulerepas", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $intitulerepas;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="calorie", type="bigint", nullable=true)
+     */
+    private $calorie;
 
 
 
     /**
-     * Set idqualite
+     * Get idrepas.
      *
-     * @param integer $idqualite
+     * @return int
+     */
+    public function getIdrepas()
+    {
+        return $this->idrepas;
+    }
+
+    /**
+     * Set idutilisateur.
+     *
+     * @param int $idutilisateur
+     *
+     * @return Repas
+     */
+    public function setIdutilisateur($idutilisateur)
+    {
+        $this->idutilisateur = $idutilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get idutilisateur.
+     *
+     * @return int
+     */
+    public function getIdutilisateur()
+    {
+        return $this->idutilisateur;
+    }
+
+    /**
+     * Set idqualite.
+     *
+     * @param int $idqualite
      *
      * @return Repas
      */
@@ -79,9 +107,9 @@ class Repas
     }
 
     /**
-     * Get idqualite
+     * Get idqualite.
      *
-     * @return integer
+     * @return int
      */
     public function getIdqualite()
     {
@@ -89,13 +117,13 @@ class Repas
     }
 
     /**
-     * Set nomrepas
+     * Set nomrepas.
      *
-     * @param string $nomrepas
+     * @param string|null $nomrepas
      *
      * @return Repas
      */
-    public function setNomrepas($nomrepas)
+    public function setNomrepas($nomrepas = null)
     {
         $this->nomrepas = $nomrepas;
 
@@ -103,9 +131,9 @@ class Repas
     }
 
     /**
-     * Get nomrepas
+     * Get nomrepas.
      *
-     * @return string
+     * @return string|null
      */
     public function getNomrepas()
     {
@@ -113,13 +141,13 @@ class Repas
     }
 
     /**
-     * Set intitulerepas
+     * Set intitulerepas.
      *
-     * @param string $intitulerepas
+     * @param string|null $intitulerepas
      *
      * @return Repas
      */
-    public function setIntitulerepas($intitulerepas)
+    public function setIntitulerepas($intitulerepas = null)
     {
         $this->intitulerepas = $intitulerepas;
 
@@ -127,9 +155,9 @@ class Repas
     }
 
     /**
-     * Get intitulerepas
+     * Get intitulerepas.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntitulerepas()
     {
@@ -137,13 +165,13 @@ class Repas
     }
 
     /**
-     * Set calorie
+     * Set calorie.
      *
-     * @param integer $calorie
+     * @param int|null $calorie
      *
      * @return Repas
      */
-    public function setCalorie($calorie)
+    public function setCalorie($calorie = null)
     {
         $this->calorie = $calorie;
 
@@ -151,60 +179,12 @@ class Repas
     }
 
     /**
-     * Get calorie
+     * Get calorie.
      *
-     * @return integer
+     * @return int|null
      */
     public function getCalorie()
     {
         return $this->calorie;
-    }
-
-    /**
-     * Set idrepas
-     *
-     * @param \ProjetBundle\Entity\Qualite $idrepas
-     *
-     * @return Repas
-     */
-    public function setIdrepas(\ProjetBundle\Entity\Qualite $idrepas)
-    {
-        $this->idrepas = $idrepas;
-
-        return $this;
-    }
-
-    /**
-     * Get idrepas
-     *
-     * @return \ProjetBundle\Entity\Qualite
-     */
-    public function getIdrepas()
-    {
-        return $this->idrepas;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
-     *
-     * @return Repas
-     */
-    public function setIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \ProjetBundle\Entity\Utilisateur
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 }

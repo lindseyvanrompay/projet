@@ -7,108 +7,54 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Suivi
  *
- * @ORM\Table(name="SUIVI", indexes={@ORM\Index(name="I_FK_SUIVI_DIETETICIEN", columns={"IDDIETETICIEN"}), @ORM\Index(name="I_FK_SUIVI_UTILISATEUR", columns={"IDUTILISATEUR"})})
- * @ORM\Entity(repositoryClass="ProjetBundle\Entity\SuiviRepository")
+ * @ORM\Table(name="suivi", indexes={@ORM\Index(name="fk_suivi_dieteticien", columns={"iddieteticien"}), @ORM\Index(name="fk_suivi_utilisateur", columns={"idutilisateur"})})
+ * @ORM\Entity
  */
 class Suivi
 {
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="DATESUIVI", type="date", nullable=true)
-     */
-    private $datesuivi;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="REMARQUE", type="text", length=255, nullable=true)
-     */
-    private $remarque;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDSUIVI", type="bigint")
+     * @ORM\Column(name="idsuivi", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idsuivi;
 
     /**
-     * @var \ProjetBundle\Entity\Dieteticien
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Dieteticien")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
-     * })
+     * @ORM\Column(name="iddieteticien", type="bigint", nullable=false)
      */
     private $iddieteticien;
 
     /**
-     * @var \ProjetBundle\Entity\Utilisateur
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      */
     private $idutilisateur;
 
-
-
     /**
-     * Set datesuivi
+     * @var \DateTime|null
      *
-     * @param \DateTime $datesuivi
-     *
-     * @return Suivi
+     * @ORM\Column(name="datesuivi", type="date", nullable=true)
      */
-    public function setDatesuivi($datesuivi)
-    {
-        $this->datesuivi = $datesuivi;
-
-        return $this;
-    }
+    private $datesuivi;
 
     /**
-     * Get datesuivi
+     * @var string|null
      *
-     * @return \DateTime
+     * @ORM\Column(name="remarque", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function getDatesuivi()
-    {
-        return $this->datesuivi;
-    }
+    private $remarque;
+
+
 
     /**
-     * Set remarque
+     * Get idsuivi.
      *
-     * @param string $remarque
-     *
-     * @return Suivi
-     */
-    public function setRemarque($remarque)
-    {
-        $this->remarque = $remarque;
-
-        return $this;
-    }
-
-    /**
-     * Get remarque
-     *
-     * @return string
-     */
-    public function getRemarque()
-    {
-        return $this->remarque;
-    }
-
-    /**
-     * Get idsuivi
-     *
-     * @return integer
+     * @return int
      */
     public function getIdsuivi()
     {
@@ -116,13 +62,13 @@ class Suivi
     }
 
     /**
-     * Set iddieteticien
+     * Set iddieteticien.
      *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
+     * @param int $iddieteticien
      *
      * @return Suivi
      */
-    public function setIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien = null)
+    public function setIddieteticien($iddieteticien)
     {
         $this->iddieteticien = $iddieteticien;
 
@@ -130,9 +76,9 @@ class Suivi
     }
 
     /**
-     * Get iddieteticien
+     * Get iddieteticien.
      *
-     * @return \ProjetBundle\Entity\Dieteticien
+     * @return int
      */
     public function getIddieteticien()
     {
@@ -140,13 +86,13 @@ class Suivi
     }
 
     /**
-     * Set idutilisateur
+     * Set idutilisateur.
      *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
+     * @param int $idutilisateur
      *
      * @return Suivi
      */
-    public function setIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setIdutilisateur($idutilisateur)
     {
         $this->idutilisateur = $idutilisateur;
 
@@ -154,12 +100,60 @@ class Suivi
     }
 
     /**
-     * Get idutilisateur
+     * Get idutilisateur.
      *
-     * @return \ProjetBundle\Entity\Utilisateur
+     * @return int
      */
     public function getIdutilisateur()
     {
         return $this->idutilisateur;
+    }
+
+    /**
+     * Set datesuivi.
+     *
+     * @param \DateTime|null $datesuivi
+     *
+     * @return Suivi
+     */
+    public function setDatesuivi($datesuivi = null)
+    {
+        $this->datesuivi = $datesuivi;
+
+        return $this;
+    }
+
+    /**
+     * Get datesuivi.
+     *
+     * @return \DateTime|null
+     */
+    public function getDatesuivi()
+    {
+        return $this->datesuivi;
+    }
+
+    /**
+     * Set remarque.
+     *
+     * @param string|null $remarque
+     *
+     * @return Suivi
+     */
+    public function setRemarque($remarque = null)
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    /**
+     * Get remarque.
+     *
+     * @return string|null
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
     }
 }

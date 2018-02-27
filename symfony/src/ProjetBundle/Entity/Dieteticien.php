@@ -7,203 +7,61 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Dieteticien
  *
- * @ORM\Table(name="DIETETICIEN")
+ * @ORM\Table(name="dieteticien")
  * @ORM\Entity
  */
 class Dieteticien
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMDIETETICIEN", type="text", length=255, nullable=true)
-     */
-    private $nomdieteticien;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PRENOMDIETETICIEN", type="text", length=255, nullable=true)
-     */
-    private $prenomdieteticien;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ADRESSEMAILDIETETICIEN", type="text", length=255, nullable=true)
-     */
-    private $adressemaildieteticien;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PSEUDODIETETICIEN", type="text", length=255, nullable=true)
-     */
-    private $pseudodieteticien;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MDPDIETETICIEN", type="text", length=255, nullable=true)
-     */
-    private $mdpdieteticien;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDDIETETICIEN", type="bigint")
+     * @ORM\Column(name="iddieteticien", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $iddieteticien;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Statistiques", inversedBy="iddieteticien")
-     * @ORM\JoinTable(name="observationstatistique",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="IDDIETETICIEN", referencedColumnName="IDDIETETICIEN")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IDSTATISTIQUE", referencedColumnName="IDSTATISTIQUE")
-     *   }
-     * )
+     * @ORM\Column(name="nomdieteticien", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idstatistique;
+    private $nomdieteticien;
 
     /**
-     * Constructor
+     * @var string|null
+     *
+     * @ORM\Column(name="prenomdieteticien", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    public function __construct()
-    {
-        $this->idstatistique = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $prenomdieteticien;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="adressemaildieteticien", type="string", length=128, nullable=true, options={"fixed"=true})
+     */
+    private $adressemaildieteticien;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="pseudodieteticien", type="string", length=16, nullable=true, options={"fixed"=true})
+     */
+    private $pseudodieteticien;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="mdpdieteticien", type="string", length=16, nullable=true, options={"fixed"=true})
+     */
+    private $mdpdieteticien;
+
 
 
     /**
-     * Set nomdieteticien
+     * Get iddieteticien.
      *
-     * @param string $nomdieteticien
-     *
-     * @return Dieteticien
-     */
-    public function setNomdieteticien($nomdieteticien)
-    {
-        $this->nomdieteticien = $nomdieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Get nomdieteticien
-     *
-     * @return string
-     */
-    public function getNomdieteticien()
-    {
-        return $this->nomdieteticien;
-    }
-
-    /**
-     * Set prenomdieteticien
-     *
-     * @param string $prenomdieteticien
-     *
-     * @return Dieteticien
-     */
-    public function setPrenomdieteticien($prenomdieteticien)
-    {
-        $this->prenomdieteticien = $prenomdieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomdieteticien
-     *
-     * @return string
-     */
-    public function getPrenomdieteticien()
-    {
-        return $this->prenomdieteticien;
-    }
-
-    /**
-     * Set adressemaildieteticien
-     *
-     * @param string $adressemaildieteticien
-     *
-     * @return Dieteticien
-     */
-    public function setAdressemaildieteticien($adressemaildieteticien)
-    {
-        $this->adressemaildieteticien = $adressemaildieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Get adressemaildieteticien
-     *
-     * @return string
-     */
-    public function getAdressemaildieteticien()
-    {
-        return $this->adressemaildieteticien;
-    }
-
-    /**
-     * Set pseudodieteticien
-     *
-     * @param string $pseudodieteticien
-     *
-     * @return Dieteticien
-     */
-    public function setPseudodieteticien($pseudodieteticien)
-    {
-        $this->pseudodieteticien = $pseudodieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Get pseudodieteticien
-     *
-     * @return string
-     */
-    public function getPseudodieteticien()
-    {
-        return $this->pseudodieteticien;
-    }
-
-    /**
-     * Set mdpdieteticien
-     *
-     * @param string $mdpdieteticien
-     *
-     * @return Dieteticien
-     */
-    public function setMdpdieteticien($mdpdieteticien)
-    {
-        $this->mdpdieteticien = $mdpdieteticien;
-
-        return $this;
-    }
-
-    /**
-     * Get mdpdieteticien
-     *
-     * @return string
-     */
-    public function getMdpdieteticien()
-    {
-        return $this->mdpdieteticien;
-    }
-
-    /**
-     * Get iddieteticien
-     *
-     * @return integer
+     * @return int
      */
     public function getIddieteticien()
     {
@@ -211,36 +69,122 @@ class Dieteticien
     }
 
     /**
-     * Add idstatistique
+     * Set nomdieteticien.
      *
-     * @param \ProjetBundle\Entity\Statistiques $idstatistique
+     * @param string|null $nomdieteticien
      *
      * @return Dieteticien
      */
-    public function addIdstatistique(\ProjetBundle\Entity\Statistiques $idstatistique)
+    public function setNomdieteticien($nomdieteticien = null)
     {
-        $this->idstatistique[] = $idstatistique;
+        $this->nomdieteticien = $nomdieteticien;
 
         return $this;
     }
 
     /**
-     * Remove idstatistique
+     * Get nomdieteticien.
      *
-     * @param \ProjetBundle\Entity\Statistiques $idstatistique
+     * @return string|null
      */
-    public function removeIdstatistique(\ProjetBundle\Entity\Statistiques $idstatistique)
+    public function getNomdieteticien()
     {
-        $this->idstatistique->removeElement($idstatistique);
+        return $this->nomdieteticien;
     }
 
     /**
-     * Get idstatistique
+     * Set prenomdieteticien.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param string|null $prenomdieteticien
+     *
+     * @return Dieteticien
      */
-    public function getIdstatistique()
+    public function setPrenomdieteticien($prenomdieteticien = null)
     {
-        return $this->idstatistique;
+        $this->prenomdieteticien = $prenomdieteticien;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomdieteticien.
+     *
+     * @return string|null
+     */
+    public function getPrenomdieteticien()
+    {
+        return $this->prenomdieteticien;
+    }
+
+    /**
+     * Set adressemaildieteticien.
+     *
+     * @param string|null $adressemaildieteticien
+     *
+     * @return Dieteticien
+     */
+    public function setAdressemaildieteticien($adressemaildieteticien = null)
+    {
+        $this->adressemaildieteticien = $adressemaildieteticien;
+
+        return $this;
+    }
+
+    /**
+     * Get adressemaildieteticien.
+     *
+     * @return string|null
+     */
+    public function getAdressemaildieteticien()
+    {
+        return $this->adressemaildieteticien;
+    }
+
+    /**
+     * Set pseudodieteticien.
+     *
+     * @param string|null $pseudodieteticien
+     *
+     * @return Dieteticien
+     */
+    public function setPseudodieteticien($pseudodieteticien = null)
+    {
+        $this->pseudodieteticien = $pseudodieteticien;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudodieteticien.
+     *
+     * @return string|null
+     */
+    public function getPseudodieteticien()
+    {
+        return $this->pseudodieteticien;
+    }
+
+    /**
+     * Set mdpdieteticien.
+     *
+     * @param string|null $mdpdieteticien
+     *
+     * @return Dieteticien
+     */
+    public function setMdpdieteticien($mdpdieteticien = null)
+    {
+        $this->mdpdieteticien = $mdpdieteticien;
+
+        return $this;
+    }
+
+    /**
+     * Get mdpdieteticien.
+     *
+     * @return string|null
+     */
+    public function getMdpdieteticien()
+    {
+        return $this->mdpdieteticien;
     }
 }

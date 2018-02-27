@@ -7,66 +7,42 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Abonnement
  *
- * @ORM\Table(name="ABONNEMENT", indexes={@ORM\Index(name="I_FK_ABONNEMENT_UTILISATEUR", columns={"IDUTILISATEUR"}), @ORM\Index(name="I_FK_ABONNEMENT_DIETETICIEN", columns={"IDDIETETICIEN"})})
+ * @ORM\Table(name="abonnement", indexes={@ORM\Index(name="fk_abonnement_dieteticien", columns={"iddieteticien"})})
  * @ORM\Entity(repositoryClass="ProjetBundle\Entity\AbonnementRepository")
  */
 class Abonnement
 {
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="DATEABONNEMENT", type="date", nullable=true)
-     */
-    private $dateabonnement;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDUTILISATEUR", type="bigint")
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idutilisateur;
 
     /**
-     * @var integer
+     * @var int
      *
-     * @ORM\Column(name="IDDIETETICIEN", type="bigint")
+     * @ORM\Column(name="iddieteticien", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $iddieteticien;
 
-
-
     /**
-     * Set dateabonnement
+     * @var \DateTime|null
      *
-     * @param \DateTime $dateabonnement
-     *
-     * @return Abonnement
+     * @ORM\Column(name="dateabonnement", type="date", nullable=true)
      */
-    public function setDateabonnement($dateabonnement)
-    {
-        $this->dateabonnement = $dateabonnement;
+    private $dateabonnement;
 
-        return $this;
-    }
+
 
     /**
-     * Get dateabonnement
+     * Set idutilisateur.
      *
-     * @return \DateTime
-     */
-    public function getDateabonnement()
-    {
-        return $this->dateabonnement;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param integer $idutilisateur
+     * @param int $idutilisateur
      *
      * @return Abonnement
      */
@@ -78,9 +54,9 @@ class Abonnement
     }
 
     /**
-     * Get idutilisateur
+     * Get idutilisateur.
      *
-     * @return integer
+     * @return int
      */
     public function getIdutilisateur()
     {
@@ -88,9 +64,9 @@ class Abonnement
     }
 
     /**
-     * Set iddieteticien
+     * Set iddieteticien.
      *
-     * @param integer $iddieteticien
+     * @param int $iddieteticien
      *
      * @return Abonnement
      */
@@ -102,12 +78,36 @@ class Abonnement
     }
 
     /**
-     * Get iddieteticien
+     * Get iddieteticien.
      *
-     * @return integer
+     * @return int
      */
     public function getIddieteticien()
     {
         return $this->iddieteticien;
+    }
+
+    /**
+     * Set dateabonnement.
+     *
+     * @param \DateTime|null $dateabonnement
+     *
+     * @return Abonnement
+     */
+    public function setDateabonnement($dateabonnement = null)
+    {
+        $this->dateabonnement = $dateabonnement;
+
+        return $this;
+    }
+
+    /**
+     * Get dateabonnement.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateabonnement()
+    {
+        return $this->dateabonnement;
     }
 }

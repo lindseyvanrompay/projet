@@ -7,81 +7,40 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Menu
  *
- * @ORM\Table(name="MENU", indexes={@ORM\Index(name="I_FK_MENU_UTILISATEUR", columns={"IDUTILISATEUR"})})
+ * @ORM\Table(name="menu", indexes={@ORM\Index(name="fk_menu_utilisateur", columns={"idutilisateur"})})
  * @ORM\Entity
  */
 class Menu
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMMENU", type="text", length=255, nullable=true)
-     */
-    private $nommenu;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDMENU", type="bigint")
+     * @ORM\Column(name="idmenu", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idmenu;
 
     /**
-     * @var \ProjetBundle\Entity\Utilisateur
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      */
     private $idutilisateur;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Mets", mappedBy="idmenu")
+     * @ORM\Column(name="nommenu", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idmets;
+    private $nommenu;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idmets = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
-     * Set nommenu
+     * Get idmenu.
      *
-     * @param string $nommenu
-     *
-     * @return Menu
-     */
-    public function setNommenu($nommenu)
-    {
-        $this->nommenu = $nommenu;
-
-        return $this;
-    }
-
-    /**
-     * Get nommenu
-     *
-     * @return string
-     */
-    public function getNommenu()
-    {
-        return $this->nommenu;
-    }
-
-    /**
-     * Get idmenu
-     *
-     * @return integer
+     * @return int
      */
     public function getIdmenu()
     {
@@ -89,13 +48,13 @@ class Menu
     }
 
     /**
-     * Set idutilisateur
+     * Set idutilisateur.
      *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
+     * @param int $idutilisateur
      *
      * @return Menu
      */
-    public function setIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setIdutilisateur($idutilisateur)
     {
         $this->idutilisateur = $idutilisateur;
 
@@ -103,9 +62,9 @@ class Menu
     }
 
     /**
-     * Get idutilisateur
+     * Get idutilisateur.
      *
-     * @return \ProjetBundle\Entity\Utilisateur
+     * @return int
      */
     public function getIdutilisateur()
     {
@@ -113,36 +72,26 @@ class Menu
     }
 
     /**
-     * Add idmet
+     * Set nommenu.
      *
-     * @param \ProjetBundle\Entity\Mets $idmet
+     * @param string|null $nommenu
      *
      * @return Menu
      */
-    public function addIdmet(\ProjetBundle\Entity\Mets $idmet)
+    public function setNommenu($nommenu = null)
     {
-        $this->idmets[] = $idmet;
+        $this->nommenu = $nommenu;
 
         return $this;
     }
 
     /**
-     * Remove idmet
+     * Get nommenu.
      *
-     * @param \ProjetBundle\Entity\Mets $idmet
+     * @return string|null
      */
-    public function removeIdmet(\ProjetBundle\Entity\Mets $idmet)
+    public function getNommenu()
     {
-        $this->idmets->removeElement($idmet);
-    }
-
-    /**
-     * Get idmets
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdmets()
-    {
-        return $this->idmets;
+        return $this->nommenu;
     }
 }

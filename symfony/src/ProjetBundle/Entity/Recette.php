@@ -7,81 +7,40 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Recette
  *
- * @ORM\Table(name="RECETTE", indexes={@ORM\Index(name="I_FK_RECETTE_UTILISATEUR", columns={"IDUTILISATEUR"})})
- * @ORM\Entity(repositoryClass="ProjetBundle\Entity\RecetteRepository")
+ * @ORM\Table(name="recette", indexes={@ORM\Index(name="fk_recette_utilisateur", columns={"idutilisateur"})})
+ * @ORM\Entity
  */
 class Recette
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMRECETTE", type="text", length=255, nullable=true)
-     */
-    private $nomrecette;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDRECETTE", type="bigint")
+     * @ORM\Column(name="idrecette", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idrecette;
 
     /**
-     * @var \ProjetBundle\Entity\Utilisateur
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      */
     private $idutilisateur;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Aliments", mappedBy="idrecette")
+     * @ORM\Column(name="nomrecette", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idaliment;
+    private $nomrecette;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idaliment = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
-     * Set nomrecette
+     * Get idrecette.
      *
-     * @param string $nomrecette
-     *
-     * @return Recette
-     */
-    public function setNomrecette($nomrecette)
-    {
-        $this->nomrecette = $nomrecette;
-
-        return $this;
-    }
-
-    /**
-     * Get nomrecette
-     *
-     * @return string
-     */
-    public function getNomrecette()
-    {
-        return $this->nomrecette;
-    }
-
-    /**
-     * Get idrecette
-     *
-     * @return integer
+     * @return int
      */
     public function getIdrecette()
     {
@@ -89,13 +48,13 @@ class Recette
     }
 
     /**
-     * Set idutilisateur
+     * Set idutilisateur.
      *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
+     * @param int $idutilisateur
      *
      * @return Recette
      */
-    public function setIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setIdutilisateur($idutilisateur)
     {
         $this->idutilisateur = $idutilisateur;
 
@@ -103,9 +62,9 @@ class Recette
     }
 
     /**
-     * Get idutilisateur
+     * Get idutilisateur.
      *
-     * @return \ProjetBundle\Entity\Utilisateur
+     * @return int
      */
     public function getIdutilisateur()
     {
@@ -113,36 +72,26 @@ class Recette
     }
 
     /**
-     * Add idaliment
+     * Set nomrecette.
      *
-     * @param \ProjetBundle\Entity\Aliments $idaliment
+     * @param string|null $nomrecette
      *
      * @return Recette
      */
-    public function addIdaliment(\ProjetBundle\Entity\Aliments $idaliment)
+    public function setNomrecette($nomrecette = null)
     {
-        $this->idaliment[] = $idaliment;
+        $this->nomrecette = $nomrecette;
 
         return $this;
     }
 
     /**
-     * Remove idaliment
+     * Get nomrecette.
      *
-     * @param \ProjetBundle\Entity\Aliments $idaliment
+     * @return string|null
      */
-    public function removeIdaliment(\ProjetBundle\Entity\Aliments $idaliment)
+    public function getNomrecette()
     {
-        $this->idaliment->removeElement($idaliment);
-    }
-
-    /**
-     * Get idaliment
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdaliment()
-    {
-        return $this->idaliment;
+        return $this->nomrecette;
     }
 }

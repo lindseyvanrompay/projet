@@ -7,110 +7,40 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Aliments
  *
- * @ORM\Table(name="ALIMENTS")
+ * @ORM\Table(name="aliments")
  * @ORM\Entity(repositoryClass="ProjetBundle\Entity\AlimentRepository")
  */
 class Aliments
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMALIMENT", type="text", length=255, nullable=true)
-     */
-    private $nomaliment;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CALORIEALIMENT", type="bigint", nullable=true)
-     */
-    private $caloriealiment;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDALIMENT", type="bigint")
+     * @ORM\Column(name="idaliment", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idaliment;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Recette", inversedBy="idaliment")
-     * @ORM\JoinTable(name="composerecette",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="IDALIMENT", referencedColumnName="IDALIMENT")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
-     *   }
-     * )
+     * @ORM\Column(name="nomaliment", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idrecette;
+    private $nomaliment;
 
     /**
-     * Constructor
+     * @var int|null
+     *
+     * @ORM\Column(name="caloriealiment", type="bigint", nullable=true)
      */
-    public function __construct()
-    {
-        $this->idrecette = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $caloriealiment;
+
 
 
     /**
-     * Set nomaliment
+     * Get idaliment.
      *
-     * @param string $nomaliment
-     *
-     * @return Aliments
-     */
-    public function setNomaliment($nomaliment)
-    {
-        $this->nomaliment = $nomaliment;
-
-        return $this;
-    }
-
-    /**
-     * Get nomaliment
-     *
-     * @return string
-     */
-    public function getNomaliment()
-    {
-        return $this->nomaliment;
-    }
-
-    /**
-     * Set caloriealiment
-     *
-     * @param integer $caloriealiment
-     *
-     * @return Aliments
-     */
-    public function setCaloriealiment($caloriealiment)
-    {
-        $this->caloriealiment = $caloriealiment;
-
-        return $this;
-    }
-
-    /**
-     * Get caloriealiment
-     *
-     * @return integer
-     */
-    public function getCaloriealiment()
-    {
-        return $this->caloriealiment;
-    }
-
-    /**
-     * Get idaliment
-     *
-     * @return integer
+     * @return int
      */
     public function getIdaliment()
     {
@@ -118,37 +48,50 @@ class Aliments
     }
 
     /**
-     * Add idrecette
+     * Set nomaliment.
      *
-     * @param \ProjetBundle\Entity\Recette $idrecette
+     * @param string|null $nomaliment
      *
      * @return Aliments
      */
-    public function addIdrecette(\ProjetBundle\Entity\Recette $idrecette)
+    public function setNomaliment($nomaliment = null)
     {
-        $this->idrecette[] = $idrecette;
+        $this->nomaliment = $nomaliment;
 
         return $this;
     }
 
     /**
-     * Remove idrecette
+     * Get nomaliment.
      *
-     * @param \ProjetBundle\Entity\Recette $idrecette
+     * @return string|null
      */
-    public function removeIdrecette(\ProjetBundle\Entity\Recette $idrecette)
+    public function getNomaliment()
     {
-        $this->idrecette->removeElement($idrecette);
+        return $this->nomaliment;
     }
 
     /**
-     * Get idrecette
+     * Set caloriealiment.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param int|null $caloriealiment
+     *
+     * @return Aliments
      */
-    public function getIdrecette()
+    public function setCaloriealiment($caloriealiment = null)
     {
-        return $this->idrecette;
+        $this->caloriealiment = $caloriealiment;
+
+        return $this;
     }
 
+    /**
+     * Get caloriealiment.
+     *
+     * @return int|null
+     */
+    public function getCaloriealiment()
+    {
+        return $this->caloriealiment;
+    }
 }

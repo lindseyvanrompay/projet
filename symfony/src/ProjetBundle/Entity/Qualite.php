@@ -7,139 +7,61 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Qualite
  *
- * @ORM\Table(name="QUALITE", indexes={@ORM\Index(name="d", columns={"IDSTATISTIQUE"}), @ORM\Index(name="I_FK_QUALITE_UTILISATEUR", columns={"IDUTILISATEUR"})})
+ * @ORM\Table(name="qualite", indexes={@ORM\Index(name="fk_qualite_statistiques", columns={"idstatistique"}), @ORM\Index(name="fk_qualite_utilisateur", columns={"idutilisateur"})})
  * @ORM\Entity
  */
 class Qualite
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="AVISSANTE", type="text", length=65535, nullable=true)
-     */
-    private $avissante;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="AVISAPPORTCALORIQUE", type="text", length=65535, nullable=true)
-     */
-    private $avisapportcalorique;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CARENCE", type="text", length=65535, nullable=true)
-     */
-    private $carence;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDQUALITE", type="bigint")
+     * @ORM\Column(name="idqualite", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idqualite;
 
     /**
-     * @var \ProjetBundle\Entity\Statistiques
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Statistiques")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDSTATISTIQUE", referencedColumnName="IDSTATISTIQUE")
-     * })
+     * @ORM\Column(name="idstatistique", type="bigint", nullable=false)
      */
     private $idstatistique;
 
     /**
-     * @var \ProjetBundle\Entity\Utilisateur
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDUTILISATEUR", referencedColumnName="IDUTILISATEUR")
-     * })
+     * @ORM\Column(name="idutilisateur", type="bigint", nullable=false)
      */
     private $idutilisateur;
 
-
-
     /**
-     * Set avissante
+     * @var string|null
      *
-     * @param string $avissante
-     *
-     * @return Qualite
+     * @ORM\Column(name="avissante", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function setAvissante($avissante)
-    {
-        $this->avissante = $avissante;
-
-        return $this;
-    }
+    private $avissante;
 
     /**
-     * Get avissante
+     * @var string|null
      *
-     * @return string
+     * @ORM\Column(name="avisapportcalorique", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function getAvissante()
-    {
-        return $this->avissante;
-    }
+    private $avisapportcalorique;
 
     /**
-     * Set avisapportcalorique
+     * @var string|null
      *
-     * @param string $avisapportcalorique
-     *
-     * @return Qualite
+     * @ORM\Column(name="carence", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function setAvisapportcalorique($avisapportcalorique)
-    {
-        $this->avisapportcalorique = $avisapportcalorique;
+    private $carence;
 
-        return $this;
-    }
+
 
     /**
-     * Get avisapportcalorique
+     * Get idqualite.
      *
-     * @return string
-     */
-    public function getAvisapportcalorique()
-    {
-        return $this->avisapportcalorique;
-    }
-
-    /**
-     * Set carence
-     *
-     * @param string $carence
-     *
-     * @return Qualite
-     */
-    public function setCarence($carence)
-    {
-        $this->carence = $carence;
-
-        return $this;
-    }
-
-    /**
-     * Get carence
-     *
-     * @return string
-     */
-    public function getCarence()
-    {
-        return $this->carence;
-    }
-
-    /**
-     * Get idqualite
-     *
-     * @return integer
+     * @return int
      */
     public function getIdqualite()
     {
@@ -147,13 +69,13 @@ class Qualite
     }
 
     /**
-     * Set idstatistique
+     * Set idstatistique.
      *
-     * @param \ProjetBundle\Entity\Statistiques $idstatistique
+     * @param int $idstatistique
      *
      * @return Qualite
      */
-    public function setIdstatistique(\ProjetBundle\Entity\Statistiques $idstatistique = null)
+    public function setIdstatistique($idstatistique)
     {
         $this->idstatistique = $idstatistique;
 
@@ -161,9 +83,9 @@ class Qualite
     }
 
     /**
-     * Get idstatistique
+     * Get idstatistique.
      *
-     * @return \ProjetBundle\Entity\Statistiques
+     * @return int
      */
     public function getIdstatistique()
     {
@@ -171,13 +93,13 @@ class Qualite
     }
 
     /**
-     * Set idutilisateur
+     * Set idutilisateur.
      *
-     * @param \ProjetBundle\Entity\Utilisateur $idutilisateur
+     * @param int $idutilisateur
      *
      * @return Qualite
      */
-    public function setIdutilisateur(\ProjetBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setIdutilisateur($idutilisateur)
     {
         $this->idutilisateur = $idutilisateur;
 
@@ -185,12 +107,84 @@ class Qualite
     }
 
     /**
-     * Get idutilisateur
+     * Get idutilisateur.
      *
-     * @return \ProjetBundle\Entity\Utilisateur
+     * @return int
      */
     public function getIdutilisateur()
     {
         return $this->idutilisateur;
+    }
+
+    /**
+     * Set avissante.
+     *
+     * @param string|null $avissante
+     *
+     * @return Qualite
+     */
+    public function setAvissante($avissante = null)
+    {
+        $this->avissante = $avissante;
+
+        return $this;
+    }
+
+    /**
+     * Get avissante.
+     *
+     * @return string|null
+     */
+    public function getAvissante()
+    {
+        return $this->avissante;
+    }
+
+    /**
+     * Set avisapportcalorique.
+     *
+     * @param string|null $avisapportcalorique
+     *
+     * @return Qualite
+     */
+    public function setAvisapportcalorique($avisapportcalorique = null)
+    {
+        $this->avisapportcalorique = $avisapportcalorique;
+
+        return $this;
+    }
+
+    /**
+     * Get avisapportcalorique.
+     *
+     * @return string|null
+     */
+    public function getAvisapportcalorique()
+    {
+        return $this->avisapportcalorique;
+    }
+
+    /**
+     * Set carence.
+     *
+     * @param string|null $carence
+     *
+     * @return Qualite
+     */
+    public function setCarence($carence = null)
+    {
+        $this->carence = $carence;
+
+        return $this;
+    }
+
+    /**
+     * Get carence.
+     *
+     * @return string|null
+     */
+    public function getCarence()
+    {
+        return $this->carence;
     }
 }

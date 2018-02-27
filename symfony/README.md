@@ -78,7 +78,7 @@ Warning ! images needs to be in the web directory and called with src="{ asset('
 ````
 Take care to not have 2 configs file !!! (@annotation + config/doctrine/Entity.orm.yml)
 
-php bin/console doctrine:mapping:import OCBlogfilmBundle annotation
+sudo php bin/console doctrine:mapping:import ProjetBundle annotation
 
 sudo php bin/console doctrine:generate:entities ProjetBundle
 

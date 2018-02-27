@@ -7,215 +7,47 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Mets
  *
- * @ORM\Table(name="METS", uniqueConstraints={@ORM\UniqueConstraint(name="I_FK_METS_RECETTE", columns={"IDRECETTE"})}, indexes={@ORM\Index(name="I_FK_METS_CATEGORIE", columns={"IDCATEGORIE"})})
+ * @ORM\Table(name="mets", indexes={@ORM\Index(name="fk_mets_recette", columns={"idrecette"}), @ORM\Index(name="fk_mets_categorie", columns={"idcategorie"})})
  * @ORM\Entity
  */
 class Mets
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="NOMMETS", type="text", length=255, nullable=true)
-     */
-    private $nommets;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CALORIEMETS", type="bigint", nullable=true)
-     */
-    private $caloriemets;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDMETS", type="bigint")
+     * @ORM\Column(name="idmets", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idmets;
 
     /**
-     * @var \ProjetBundle\Entity\Recette
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Recette")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDRECETTE", referencedColumnName="IDRECETTE")
-     * })
+     * @ORM\Column(name="idrecette", type="bigint", nullable=false)
      */
     private $idrecette;
 
     /**
-     * @var \ProjetBundle\Entity\Categorie
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDCATEGORIE", referencedColumnName="IDCATEGORIE")
-     * })
+     * @ORM\Column(name="idcategorie", type="bigint", nullable=false)
      */
     private $idcategorie;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Menu", inversedBy="idmets")
-     * @ORM\JoinTable(name="composemenu",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="IDMETS", referencedColumnName="IDMETS")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="IDMENU", referencedColumnName="IDMENU")
-     *   }
-     * )
+     * @ORM\Column(name="nommets", type="string", length=32, nullable=true, options={"fixed"=true})
      */
-    private $idmenu;
+    private $nommets;
 
     /**
-     * Constructor
+     * @var int|null
+     *
+     * @ORM\Column(name="caloriemets", type="bigint", nullable=true)
      */
-    public function __construct()
-    {
-        $this->idmenu = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $caloriemets;
 
 
-    /**
-     * Set nommets
-     *
-     * @param string $nommets
-     *
-     * @return Mets
-     */
-    public function setNommets($nommets)
-    {
-        $this->nommets = $nommets;
-
-        return $this;
-    }
-
-    /**
-     * Get nommets
-     *
-     * @return string
-     */
-    public function getNommets()
-    {
-        return $this->nommets;
-    }
-
-    /**
-     * Set caloriemets
-     *
-     * @param integer $caloriemets
-     *
-     * @return Mets
-     */
-    public function setCaloriemets($caloriemets)
-    {
-        $this->caloriemets = $caloriemets;
-
-        return $this;
-    }
-
-    /**
-     * Get caloriemets
-     *
-     * @return integer
-     */
-    public function getCaloriemets()
-    {
-        return $this->caloriemets;
-    }
-
-    /**
-     * Get idmets
-     *
-     * @return integer
-     */
-    public function getIdmets()
-    {
-        return $this->idmets;
-    }
-
-    /**
-     * Set idrecette
-     *
-     * @param \ProjetBundle\Entity\Recette $idrecette
-     *
-     * @return Mets
-     */
-    public function setIdrecette(\ProjetBundle\Entity\Recette $idrecette = null)
-    {
-        $this->idrecette = $idrecette;
-
-        return $this;
-    }
-
-    /**
-     * Get idrecette
-     *
-     * @return \ProjetBundle\Entity\Recette
-     */
-    public function getIdrecette()
-    {
-        return $this->idrecette;
-    }
-
-    /**
-     * Set idcategorie
-     *
-     * @param \ProjetBundle\Entity\Categorie $idcategorie
-     *
-     * @return Mets
-     */
-    public function setIdcategorie(\ProjetBundle\Entity\Categorie $idcategorie = null)
-    {
-        $this->idcategorie = $idcategorie;
-
-        return $this;
-    }
-
-    /**
-     * Get idcategorie
-     *
-     * @return \ProjetBundle\Entity\Categorie
-     */
-    public function getIdcategorie()
-    {
-        return $this->idcategorie;
-    }
-
-    /**
-     * Add idmenu
-     *
-     * @param \ProjetBundle\Entity\Menu $idmenu
-     *
-     * @return Mets
-     */
-    public function addIdmenu(\ProjetBundle\Entity\Menu $idmenu)
-    {
-        $this->idmenu[] = $idmenu;
-
-        return $this;
-    }
-
-    /**
-     * Remove idmenu
-     *
-     * @param \ProjetBundle\Entity\Menu $idmenu
-     */
-    public function removeIdmenu(\ProjetBundle\Entity\Menu $idmenu)
-    {
-        $this->idmenu->removeElement($idmenu);
-    }
-
-    /**
-     * Get idmenu
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdmenu()
-    {
-        return $this->idmenu;
-    }
 }

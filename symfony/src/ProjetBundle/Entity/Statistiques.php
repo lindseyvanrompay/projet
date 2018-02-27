@@ -7,102 +7,40 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Statistiques
  *
- * @ORM\Table(name="STATISTIQUES")
+ * @ORM\Table(name="statistiques")
  * @ORM\Entity
  */
 class Statistiques
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="AVISSANTEGROUPE", type="text", length=65535, nullable=true)
-     */
-    private $avissantegroupe;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="AVISAPPORTCALORIQUEGROUPE", type="text", length=65535, nullable=true)
-     */
-    private $avisapportcaloriquegroupe;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IDSTATISTIQUE", type="bigint")
+     * @ORM\Column(name="idstatistique", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idstatistique;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string|null
      *
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Dieteticien", mappedBy="idstatistique")
+     * @ORM\Column(name="avissantegroupe", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    private $iddieteticien;
+    private $avissantegroupe;
 
     /**
-     * Constructor
+     * @var string|null
+     *
+     * @ORM\Column(name="avisapportcaloriquegroupe", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    public function __construct()
-    {
-        $this->iddieteticien = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $avisapportcaloriquegroupe;
+
 
 
     /**
-     * Set avissantegroupe
+     * Get idstatistique.
      *
-     * @param string $avissantegroupe
-     *
-     * @return Statistiques
-     */
-    public function setAvissantegroupe($avissantegroupe)
-    {
-        $this->avissantegroupe = $avissantegroupe;
-
-        return $this;
-    }
-
-    /**
-     * Get avissantegroupe
-     *
-     * @return string
-     */
-    public function getAvissantegroupe()
-    {
-        return $this->avissantegroupe;
-    }
-
-    /**
-     * Set avisapportcaloriquegroupe
-     *
-     * @param string $avisapportcaloriquegroupe
-     *
-     * @return Statistiques
-     */
-    public function setAvisapportcaloriquegroupe($avisapportcaloriquegroupe)
-    {
-        $this->avisapportcaloriquegroupe = $avisapportcaloriquegroupe;
-
-        return $this;
-    }
-
-    /**
-     * Get avisapportcaloriquegroupe
-     *
-     * @return string
-     */
-    public function getAvisapportcaloriquegroupe()
-    {
-        return $this->avisapportcaloriquegroupe;
-    }
-
-    /**
-     * Get idstatistique
-     *
-     * @return integer
+     * @return int
      */
     public function getIdstatistique()
     {
@@ -110,36 +48,50 @@ class Statistiques
     }
 
     /**
-     * Add iddieteticien
+     * Set avissantegroupe.
      *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
+     * @param string|null $avissantegroupe
      *
      * @return Statistiques
      */
-    public function addIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien)
+    public function setAvissantegroupe($avissantegroupe = null)
     {
-        $this->iddieteticien[] = $iddieteticien;
+        $this->avissantegroupe = $avissantegroupe;
 
         return $this;
     }
 
     /**
-     * Remove iddieteticien
+     * Get avissantegroupe.
      *
-     * @param \ProjetBundle\Entity\Dieteticien $iddieteticien
+     * @return string|null
      */
-    public function removeIddieteticien(\ProjetBundle\Entity\Dieteticien $iddieteticien)
+    public function getAvissantegroupe()
     {
-        $this->iddieteticien->removeElement($iddieteticien);
+        return $this->avissantegroupe;
     }
 
     /**
-     * Get iddieteticien
+     * Set avisapportcaloriquegroupe.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param string|null $avisapportcaloriquegroupe
+     *
+     * @return Statistiques
      */
-    public function getIddieteticien()
+    public function setAvisapportcaloriquegroupe($avisapportcaloriquegroupe = null)
     {
-        return $this->iddieteticien;
+        $this->avisapportcaloriquegroupe = $avisapportcaloriquegroupe;
+
+        return $this;
+    }
+
+    /**
+     * Get avisapportcaloriquegroupe.
+     *
+     * @return string|null
+     */
+    public function getAvisapportcaloriquegroupe()
+    {
+        return $this->avisapportcaloriquegroupe;
     }
 }

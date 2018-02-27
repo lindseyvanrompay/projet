@@ -64,13 +64,4 @@
   63 => 'Twig_LoaderInterface',
   64 => 'Twig_Markup',
   65 => 'Twig_Template',
-  66 => 'Doctrine\\Common\\Annotations\\DocLexer',
-  67 => 'Doctrine\\Common\\Annotations\\FileCacheReader',
-  68 => 'Doctrine\\Common\\Annotations\\PhpParser',
-  69 => 'Doctrine\\Common\\Annotations\\Reader',
-  70 => 'Doctrine\\Common\\Lexer',
-  71 => 'Doctrine\\Common\\Persistence\\ConnectionRegistry',
-  72 => 'Doctrine\\Common\\Persistence\\Proxy',
-  73 => 'Doctrine\\Common\\Util\\ClassUtils',
-  74 => 'Doctrine\\Bundle\\DoctrineBundle\\Registry',
 );

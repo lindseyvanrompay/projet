@@ -15,7 +15,6 @@
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="ProjetBundle">ProjetBundle\ProjetBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
@@ -58,11 +57,6 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/home/lindsey/Documents/L3_MIAGE/projet/symfony/vendor/sensio/framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
-      </parameter>
-      <parameter key="FOSRestBundle" type="collection">
-        <parameter key="parent">null</parameter>
-        <parameter key="path">/home/lindsey/Documents/L3_MIAGE/projet/symfony/vendor/friendsofsymfony/rest-bundle</parameter>
-        <parameter key="namespace">FOS\RestBundle</parameter>
       </parameter>
       <parameter key="AppBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -200,7 +194,6 @@
     <parameter key="swiftmailer.email_sender.listener.class">Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</parameter>
     <parameter key="swiftmailer.data_collector.class">Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector</parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">smtp</parameter>
-    <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
@@ -214,6 +207,7 @@
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.spool.enabled">true</parameter>
     <parameter key="swiftmailer.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.single_address">null</parameter>
@@ -406,6 +400,30 @@
       </parameter>
     </parameter>
     <parameter key="console.command.ids" type="collection">
+      <parameter>doctrine_cache.contains_command</parameter>
+      <parameter>doctrine_cache.delete_command</parameter>
+      <parameter>doctrine_cache.flush_command</parameter>
+      <parameter>doctrine_cache.stats_command</parameter>
+      <parameter>doctrine.database_create_command</parameter>
+      <parameter>doctrine.database_drop_command</parameter>
+      <parameter>doctrine.generate_entities_command</parameter>
+      <parameter>doctrine.mapping_import_command</parameter>
+      <parameter>doctrine.cache_clear_metadata_command</parameter>
+      <parameter>doctrine.cache_clear_query_cache_command</parameter>
+      <parameter>doctrine.cache_clear_result_command</parameter>
+      <parameter>doctrine.cache_collection_region_command</parameter>
+      <parameter>doctrine.mapping_convert_command</parameter>
+      <parameter>doctrine.schema_create_command</parameter>
+      <parameter>doctrine.schema_drop_command</parameter>
+      <parameter>doctrine.ensure_production_settings_command</parameter>
+      <parameter>doctrine.clear_entity_region_command</parameter>
+      <parameter>doctrine.database_import_command</parameter>
+      <parameter>doctrine.mapping_info_command</parameter>
+      <parameter>doctrine.clear_query_region_command</parameter>
+      <parameter>doctrine.query_dql_command</parameter>
+      <parameter>doctrine.query_sql_command</parameter>
+      <parameter>doctrine.schema_update_command</parameter>
+      <parameter>doctrine.schema_validate_command</parameter>
       <parameter>sensio_distribution.security_checker.command</parameter>
     </parameter>
   </parameters>
@@ -470,7 +488,7 @@
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>1FpCm33j9C</argument>
                 <argument>0</argument>
-                <argument>gzmTzD7ss4t7qbPS9-2rDA</argument>
+                <argument>yHcn0K2fQT40dYAzroNPo1</argument>
                 <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -656,7 +674,7 @@
           <tag name="monolog.logger" channel="cache"/>
           <argument>E+foxiGxdN</argument>
           <argument>null</argument>
-          <argument>gzmTzD7ss4t7qbPS9-2rDA</argument>
+          <argument>yHcn0K2fQT40dYAzroNPo1</argument>
           <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
           <factory class="Symfony\Component\PropertyAccess\PropertyAccessor" method="createCache"/>
         </service>
@@ -677,7 +695,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>3aKVpVwmgA</argument>
       <argument>0</argument>
-      <argument>gzmTzD7ss4t7qbPS9-2rDA</argument>
+      <argument>yHcn0K2fQT40dYAzroNPo1</argument>
       <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -687,7 +705,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>8i9QYwcbNw</argument>
       <argument>0</argument>
-      <argument>gzmTzD7ss4t7qbPS9-2rDA</argument>
+      <argument>yHcn0K2fQT40dYAzroNPo1</argument>
       <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -697,7 +715,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>kVzITHfpRw</argument>
       <argument>0</argument>
-      <argument>gzmTzD7ss4t7qbPS9-2rDA</argument>
+      <argument>yHcn0K2fQT40dYAzroNPo1</argument>
       <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1432,14 +1450,6 @@
         </argument>
         <argument>0</argument>
       </call>
-      <call method="addListenerService">
-        <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument>fos_rest.body_listener</argument>
-          <argument>onKernelRequest</argument>
-        </argument>
-        <argument>10</argument>
-      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -1634,6 +1644,14 @@
           </call>
           <call method="addLoader">
             <argument type="service">
+              <service class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
+                <tag name="routing.loader"/>
+                <argument type="service" id="annotation_reader"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addLoader">
+            <argument type="service">
               <service class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader" public="false">
                 <tag name="routing.loader"/>
                 <argument type="service" id="file_locator"/>
@@ -1657,91 +1675,6 @@
                     <argument type="service" id="annotation_reader"/>
                   </service>
                 </argument>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
-              <service class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="annotation_reader"/>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
-              <service class="FOS\RestBundle\Routing\Loader\DirectoryRouteLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="file_locator"/>
-                <argument type="service">
-                  <service class="FOS\RestBundle\Routing\Loader\RestRouteProcessor" public="false"/>
-                </argument>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
-              <service class="FOS\RestBundle\Routing\Loader\RestRouteLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="service_container"/>
-                <argument type="service" id="file_locator"/>
-                <argument type="service" id="controller_name_converter"/>
-                <argument type="service">
-                  <service class="FOS\RestBundle\Routing\Loader\Reader\RestControllerReader" public="false">
-                    <argument type="service">
-                      <service class="FOS\RestBundle\Routing\Loader\Reader\RestActionReader" public="false">
-                        <argument type="service" id="annotation_reader"/>
-                        <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
-                        <argument type="service" id="fos_rest.inflector"/>
-                        <argument>true</argument>
-                        <argument type="collection">
-                          <argument key="json">false</argument>
-                          <argument key="xml">false</argument>
-                          <argument key="html">true</argument>
-                        </argument>
-                        <argument>true</argument>
-                      </service>
-                    </argument>
-                    <argument type="service" id="annotation_reader"/>
-                  </service>
-                </argument>
-                <argument>null</argument>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
-              <service class="FOS\RestBundle\Routing\Loader\RestYamlCollectionLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="file_locator"/>
-                <argument type="service">
-                  <service class="FOS\RestBundle\Routing\Loader\RestRouteProcessor" public="false"/>
-                </argument>
-                <argument>true</argument>
-                <argument type="collection">
-                  <argument key="json">false</argument>
-                  <argument key="xml">false</argument>
-                  <argument key="html">true</argument>
-                </argument>
-                <argument>null</argument>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
-              <service class="FOS\RestBundle\Routing\Loader\RestXmlCollectionLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="file_locator"/>
-                <argument type="service">
-                  <service class="FOS\RestBundle\Routing\Loader\RestRouteProcessor" public="false"/>
-                </argument>
-                <argument>true</argument>
-                <argument type="collection">
-                  <argument key="json">false</argument>
-                  <argument key="xml">false</argument>
-                  <argument key="html">true</argument>
-                </argument>
-                <argument>null</argument>
               </service>
             </argument>
           </call>
@@ -1769,12 +1702,6 @@
     </service>
     <service id="serializer" class="Symfony\Component\Serializer\Serializer">
       <argument type="collection">
-        <argument type="service">
-          <service class="FOS\RestBundle\Serializer\Normalizer\FormErrorNormalizer" public="false">
-            <tag name="serializer.normalizer" priority="-10"/>
-            <argument type="service" id="translator"/>
-          </service>
-        </argument>
         <argument type="service">
           <service class="Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer" public="false">
             <tag name="serializer.normalizer" priority="-900"/>
@@ -1859,7 +1786,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5a92c8b322a043.95775027</argument>
+            <argument>5a95b54d65ef77.21532368</argument>
           </service>
         </argument>
       </argument>
@@ -2007,7 +1934,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5a92c8b322a043.95775027</argument>
+            <argument>5a95b54d65ef77.21532368</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2361,6 +2288,18 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="doctrine_cache.contains_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\ContainsCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.delete_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\DeleteCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.flush_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\FlushCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.stats_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\StatsCommand">
+      <tag name="console.command"/>
+    </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
       <argument type="collection"/>
     </service>
@@ -2374,6 +2313,18 @@
       </argument>
       <argument>default</argument>
       <argument>default</argument>
+    </service>
+    <service id="doctrine.database_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\CreateDatabaseDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:create"/>
+    </service>
+    <service id="doctrine.database_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\DropDatabaseDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:drop"/>
+    </service>
+    <service id="doctrine.generate_entities_command" class="Doctrine\Bundle\DoctrineBundle\Command\GenerateEntitiesDoctrineCommand">
+      <tag name="console.command" command="doctrine:generate:entities"/>
+    </service>
+    <service id="doctrine.mapping_import_command" class="Doctrine\Bundle\DoctrineBundle\Command\ImportMappingDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:import"/>
     </service>
     <service id="doctrine.dbal.logger.profiling.default" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection">
@@ -2440,19 +2391,67 @@
       <tag name="validator.initializer"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearMetadataCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-metadata"/>
+    </service>
+    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearQueryCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-query"/>
+    </service>
+    <service id="doctrine.cache_clear_result_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearResultCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-result"/>
+    </service>
+    <service id="doctrine.cache_collection_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CollectionRegionDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-collection-region"/>
+    </service>
+    <service id="doctrine.mapping_convert_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ConvertMappingDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:convert"/>
+    </service>
+    <service id="doctrine.schema_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CreateSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:create"/>
+    </service>
+    <service id="doctrine.schema_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\DropSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:drop"/>
+    </service>
+    <service id="doctrine.ensure_production_settings_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSettingsDoctrineCommand">
+      <tag name="console.command" command="doctrine:ensure-production-settings"/>
+    </service>
+    <service id="doctrine.clear_entity_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EntityRegionCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-entity-region"/>
+    </service>
+    <service id="doctrine.database_import_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ImportDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:import"/>
+    </service>
+    <service id="doctrine.mapping_info_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\InfoDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:info"/>
+    </service>
+    <service id="doctrine.clear_query_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\QueryRegionCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-query-region"/>
+    </service>
+    <service id="doctrine.query_dql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunDqlDoctrineCommand">
+      <tag name="console.command" command="doctrine:query:dql"/>
+    </service>
+    <service id="doctrine.query_sql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunSqlDoctrineCommand">
+      <tag name="console.command" command="doctrine:query:sql"/>
+    </service>
+    <service id="doctrine.schema_update_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\UpdateSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:update"/>
+    </service>
+    <service id="doctrine.schema_validate_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand">
+      <tag name="console.command" command="doctrine:schema:validate"/>
+    </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_7c83c3b99a9801911d66147c00d81e7e5f11d4946e7f3913c935d600dba90ec6</argument>
+        <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_7c83c3b99a9801911d66147c00d81e7e5f11d4946e7f3913c935d600dba90ec6</argument>
+        <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_7c83c3b99a9801911d66147c00d81e7e5f11d4946e7f3913c935d600dba90ec6</argument>
+        <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
@@ -2528,6 +2527,13 @@
           <call method="setEntityListenerResolver">
             <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
           </call>
+          <call method="setRepositoryFactory">
+            <argument type="service">
+              <service class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
+                <argument>null</argument>
+              </service>
+            </argument>
+          </call>
         </service>
       </argument>
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
@@ -2590,35 +2596,6 @@
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
-    </service>
-    <service id="fos_rest.request.param_fetcher" class="FOS\RestBundle\Request\ParamFetcher">
-      <argument type="service" id="service_container"/>
-      <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
-      <argument type="service" id="request_stack"/>
-      <argument type="service" id="validator" on-invalid="null"/>
-    </service>
-    <service id="fos_rest.request.param_fetcher.reader" class="FOS\RestBundle\Request\ParamReader" public="false">
-      <argument type="service" id="annotation_reader"/>
-    </service>
-    <service id="fos_rest.normalizer.camel_keys" class="FOS\RestBundle\Normalizer\CamelKeysNormalizer"/>
-    <service id="fos_rest.normalizer.camel_keys_with_leading_underscore" class="FOS\RestBundle\Normalizer\CamelKeysNormalizerWithLeadingUnderscore"/>
-    <service id="fos_rest.decoder.json" class="FOS\RestBundle\Decoder\JsonDecoder"/>
-    <service id="fos_rest.decoder.jsontoform" class="FOS\RestBundle\Decoder\JsonToFormDecoder"/>
-    <service id="fos_rest.decoder.xml" class="FOS\RestBundle\Decoder\XmlDecoder"/>
-    <service id="fos_rest.decoder_provider" class="FOS\RestBundle\Decoder\ContainerDecoderProvider">
-      <argument type="service" id="service_container"/>
-      <argument type="collection">
-        <argument key="json">fos_rest.decoder.json</argument>
-        <argument key="xml">fos_rest.decoder.xml</argument>
-      </argument>
-    </service>
-    <service id="fos_rest.body_listener" class="FOS\RestBundle\EventListener\BodyListener">
-      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="10"/>
-      <argument type="service" id="fos_rest.decoder_provider"/>
-      <argument>false</argument>
-      <call method="setDefaultFormat">
-        <argument>null</argument>
-      </call>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
@@ -3005,28 +2982,6 @@
         </service>
       </configurator>
     </service>
-    <service id="fos\restbundle\view\viewhandlerinterface" class="FOS\RestBundle\View\ViewHandler">
-      <argument type="service" id="router"/>
-      <argument type="service" id="fos_rest.serializer"/>
-      <argument type="service" id="templating" on-invalid="null"/>
-      <argument type="service" id="request_stack"/>
-      <argument type="collection">
-        <argument key="json">false</argument>
-        <argument key="xml">false</argument>
-        <argument key="html">true</argument>
-      </argument>
-      <argument>400</argument>
-      <argument>204</argument>
-      <argument>false</argument>
-      <argument type="collection">
-        <argument key="html">302</argument>
-      </argument>
-      <argument>twig</argument>
-      <call method="setSerializeNullStrategy">
-        <argument>false</argument>
-      </call>
-    </service>
-    <service id="fos_rest.inflector" class="FOS\RestBundle\Inflector\DoctrineInflector"/>
     <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="service" id="templating.locator"/>
@@ -3075,9 +3030,6 @@
         <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
-    <service id="fos_rest.serializer" class="FOS\RestBundle\Serializer\SymfonySerializerAdapter" lazy="true">
-      <argument type="service" id="serializer"/>
-    </service>
     <service id="cache.app_clearer" alias="cache.default_clearer"/>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
@@ -3092,10 +3044,30 @@
     <service id="doctrine.orm.default_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
-    <service id="fos\restbundle\request\paramfetcherinterface" alias="fos_rest.request.param_fetcher"/>
-    <service id="fos_rest.router" alias="router"/>
-    <service id="fos_rest.templating" alias="templating"/>
-    <service id="fos_rest.view_handler" alias="fos\restbundle\view\viewhandlerinterface"/>
+    <service id="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand" alias="doctrine_cache.contains_command"/>
+    <service id="console.command.doctrine_bundle_doctrinecachebundle_command_deletecommand" alias="doctrine_cache.delete_command"/>
+    <service id="console.command.doctrine_bundle_doctrinecachebundle_command_flushcommand" alias="doctrine_cache.flush_command"/>
+    <service id="console.command.doctrine_bundle_doctrinecachebundle_command_statscommand" alias="doctrine_cache.stats_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_createdatabasedoctrinecommand" alias="doctrine.database_create_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_dropdatabasedoctrinecommand" alias="doctrine.database_drop_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_generateentitiesdoctrinecommand" alias="doctrine.generate_entities_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_importmappingdoctrinecommand" alias="doctrine.mapping_import_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearmetadatacachedoctrinecommand" alias="doctrine.cache_clear_metadata_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearquerycachedoctrinecommand" alias="doctrine.cache_clear_query_cache_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearresultcachedoctrinecommand" alias="doctrine.cache_clear_result_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_collectionregiondoctrinecommand" alias="doctrine.cache_collection_region_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_convertmappingdoctrinecommand" alias="doctrine.mapping_convert_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_createschemadoctrinecommand" alias="doctrine.schema_create_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_dropschemadoctrinecommand" alias="doctrine.schema_drop_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_ensureproductionsettingsdoctrinecommand" alias="doctrine.ensure_production_settings_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_entityregioncachedoctrinecommand" alias="doctrine.clear_entity_region_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_importdoctrinecommand" alias="doctrine.database_import_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_infodoctrinecommand" alias="doctrine.mapping_info_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_queryregioncachedoctrinecommand" alias="doctrine.clear_query_region_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_rundqldoctrinecommand" alias="doctrine.query_dql_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_runsqldoctrinecommand" alias="doctrine.query_sql_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand" alias="doctrine.schema_update_command"/>
+    <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand" alias="doctrine.schema_validate_command"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>
 </container>

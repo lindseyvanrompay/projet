@@ -14,3 +14,7 @@ creation_recette:
 test:
     path:    /test
     defaults: { _controller: ProjetBundle:Default:test }
+
+consultation_abonnement:
+    path:     /consultation
+    defaults: { _controller: ProjetBundle:Abonnement:consultation }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% block stylesheet %}
+
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+{% for abo_courant in abonnement %}
+    <ul>
+        <li>{{ abo_courant.nomdieteticien }}</li>
+        <li>{{ abo_courant.prenomdieteticien }}</li>
+        <li>{{ abo_courant.dateabonnement }}</li>
+    </ul>
+{% endfor %}
+
+
+{% endblock %}

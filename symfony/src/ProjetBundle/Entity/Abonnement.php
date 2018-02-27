@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Abonnement
  *
  * @ORM\Table(name="ABONNEMENT", indexes={@ORM\Index(name="I_FK_ABONNEMENT_UTILISATEUR", columns={"IDUTILISATEUR"}), @ORM\Index(name="I_FK_ABONNEMENT_DIETETICIEN", columns={"IDDIETETICIEN"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ProjetBundle\Entity\AbonnementRepository")
  */
 class Abonnement
 {

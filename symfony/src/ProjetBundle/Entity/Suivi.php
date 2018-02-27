@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Suivi
  *
  * @ORM\Table(name="SUIVI", indexes={@ORM\Index(name="I_FK_SUIVI_DIETETICIEN", columns={"IDDIETETICIEN"}), @ORM\Index(name="I_FK_SUIVI_UTILISATEUR", columns={"IDUTILISATEUR"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ProjetBundle\Entity\SuiviRepository")
  */
 class Suivi
 {

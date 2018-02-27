@@ -65,7 +65,10 @@
   64 => 'Twig_Markup',
   65 => 'Twig_Template',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
   66 => 'Monolog\\Formatter\\FormatterInterface',
   67 => 'Monolog\\Formatter\\LineFormatter',
   68 => 'Monolog\\Handler\\HandlerInterface',
@@ -98,5 +101,8 @@
   95 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\HttpCacheListener',
   96 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\SecurityListener',
   97 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ConfigurationAnnotation',
+<<<<<<< HEAD
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
+=======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 );

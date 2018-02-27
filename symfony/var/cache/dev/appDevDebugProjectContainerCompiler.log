@@ -229,6 +229,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_framework_extra.routing.loader.annot_file" to "routing.resolver".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "routing.resolver" to "routing.loader".
 <<<<<<< HEAD
+<<<<<<< HEAD
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "a000dcea3535e8df8e3682aa436b3eccdaff44dc94a59c4eb206c9efb4d6d522_1" to "annotations.cache".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.normalizer.json_serializable" to "serializer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.normalizer.datetime" to "serializer".
@@ -240,6 +241,9 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.encoder.xml" to "serializer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.encoder.json" to "serializer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.mapping.chain_loader" to "serializer.mapping.class_metadata_factory".
+=======
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "7a8acbc7e98b8254c4a233d204c55fa3b2a2e834579792d5ad0dafbcaf30a656_1" to "annotations.cache".
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "7a8acbc7e98b8254c4a233d204c55fa3b2a2e834579792d5ad0dafbcaf30a656_1" to "annotations.cache".
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -470,7 +474,10 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_framework_extra.routing.loader.annot_class" to "routing.loader".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_framework_extra.routing.loader.annot_class" to "routing.loader".
 <<<<<<< HEAD
+<<<<<<< HEAD
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "serializer.mapping.class_metadata_factory" to "serializer".
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.access_map" to "security.firewall.map.context.main".

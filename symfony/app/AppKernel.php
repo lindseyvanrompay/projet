@@ -16,7 +16,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             new FOS\UserBundle\FOSUserBundle(),
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
             new AppBundle\AppBundle(),

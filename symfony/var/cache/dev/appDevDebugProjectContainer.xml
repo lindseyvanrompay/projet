@@ -487,8 +487,13 @@
                 <argument>obS7OUuSPq</argument>
                 <argument>0</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <argument>yHcn0K2fQT40dYAzroNPo1</argument>
                 <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
+=======
+                <argument>m2hTrO9jmiolJvB561WZSp</argument>
+                <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
                 <argument>m2hTrO9jmiolJvB561WZSp</argument>
                 <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
@@ -664,7 +669,11 @@
           <argument>od8x3-VI1W</argument>
           <argument>null</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <argument>yHcn0K2fQT40dYAzroNPo1</argument>
+=======
+          <argument>m2hTrO9jmiolJvB561WZSp</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
           <argument>m2hTrO9jmiolJvB561WZSp</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -687,6 +696,7 @@
       <tag name="cache.pool"/>
       <tag name="cache.pool" clearer="cache.default_clearer"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>3aKVpVwmgA</argument>
       <argument>0</argument>
       <argument>yHcn0K2fQT40dYAzroNPo1</argument>
@@ -707,6 +717,12 @@
       <argument>m2hTrO9jmiolJvB561WZSp</argument>
       <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
+=======
+      <argument>DNdrvWBgyU</argument>
+      <argument>0</argument>
+      <argument>m2hTrO9jmiolJvB561WZSp</argument>
+      <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -716,8 +732,13 @@
       <argument>+D9D8PWYsY</argument>
       <argument>0</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>yHcn0K2fQT40dYAzroNPo1</argument>
       <argument>/home/lindsey/Documents/L3_MIAGE/projet/symfony/var/cache/dev/pools</argument>
+=======
+      <argument>m2hTrO9jmiolJvB561WZSp</argument>
+      <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
       <argument>m2hTrO9jmiolJvB561WZSp</argument>
       <argument>C:\wamp\www\projet-views\symfony\var\cache\dev/pools</argument>
@@ -1669,6 +1690,7 @@
           <call method="addLoader">
             <argument type="service">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <service class="Symfony\Component\Routing\Loader\AnnotationFileLoader" public="false">
                 <tag name="routing.loader"/>
                 <argument type="service" id="file_locator"/>
@@ -1678,6 +1700,11 @@
                     <argument type="service" id="annotation_reader"/>
                   </service>
                 </argument>
+=======
+              <service class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
+                <tag name="routing.loader"/>
+                <argument type="service" id="annotation_reader"/>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
               <service class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
                 <tag name="routing.loader"/>
@@ -1708,6 +1735,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <autowiring-type>Doctrine\Common\Annotations\Reader</autowiring-type>
     </service>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <service id="serializer" class="Symfony\Component\Serializer\Serializer">
       <argument type="collection">
@@ -1786,6 +1814,8 @@
     </service>
 =======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.authentication.manager"/>
@@ -1798,7 +1828,11 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <argument>5a95b54d65ef77.21532368</argument>
+=======
+            <argument>5a92c7a2d15817.79777852</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
             <argument>5a92c7a2d15817.79777852</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -1950,7 +1984,11 @@
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <argument>5a95b54d65ef77.21532368</argument>
+=======
+            <argument>5a92c7a2d15817.79777852</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
             <argument>5a92c7a2d15817.79777852</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -2461,7 +2499,11 @@
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
+=======
+        <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
         <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -2470,7 +2512,11 @@
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
+=======
+        <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
         <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -2479,7 +2525,11 @@
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>sf_orm_default_4125e09bdc19ddb62a4c5bf5c62f2cc1e5c61074da09c6d5f6aafb509b5d39fb</argument>
+=======
+        <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
         <argument>sf2orm_default_067c71ccc9ab401e1bab98b6b44c932f2d762a8892f315736d68311e8b97c582</argument>
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
@@ -3076,6 +3126,7 @@
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand" alias="doctrine_cache.contains_command"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_deletecommand" alias="doctrine_cache.delete_command"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_flushcommand" alias="doctrine_cache.flush_command"/>
@@ -3100,6 +3151,8 @@
     <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_runsqldoctrinecommand" alias="doctrine.query_sql_command"/>
     <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand" alias="doctrine.schema_update_command"/>
     <service id="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand" alias="doctrine.schema_validate_command"/>
+=======
+>>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
 =======
 >>>>>>> bffd48930536fd779cf301422b52b44f82432e5b
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
